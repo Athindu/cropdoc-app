@@ -1,1 +1,0 @@
-# cropdoc-app
