@@ -32,6 +32,7 @@ dependencies:
   google_fonts: ^2.3.1
   shared_preferences: ^2.0.13
   flutter_native_splash: ^2.1.1
+  flutter_keyboard_visibility: ^5.2.0
 
 
 
