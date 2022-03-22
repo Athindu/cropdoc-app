@@ -1,3 +1,4 @@
+import 'package:cropdoc_app/views/main_page.dart';
 import 'package:flutter/material.dart';
 import 'package:cropdoc_app/app_styles.dart';
 import 'package:cropdoc_app/main.dart';
@@ -128,7 +129,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => HomePage(),
+                                builder: (context) => MainView(),
                               ));
                         },
                         bgColor: kPrimaryColor,
@@ -142,7 +143,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => HomePage()));
+                                      builder: (context) => MainView()));
                             },
                           ),
                           Row(

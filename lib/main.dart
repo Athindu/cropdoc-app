@@ -1,3 +1,4 @@
+import 'package:cropdoc_app/views/main_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
         ),
         primarySwatch: Colors.blue,
       ),
-      home: seenOnboard == true ? HomePage() : OnBoardingPage(),
+      home: seenOnboard == true ? MainView() : OnBoardingPage(),
     );
   }
 }
