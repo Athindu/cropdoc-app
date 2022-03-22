@@ -28,23 +28,26 @@ class _TabBarMaterialWidgetState extends State<TabBarMaterialWidget> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
+          //Container(height: 55.0),
           buildTabItem(
             index: 0,
-            icon: Icon(Icons.search),
+            icon: Icon(Icons.home_filled),
           ),
           buildTabItem(
             index: 1,
-            icon: Icon(Icons.mail_outline),
+            icon: Icon(Icons.grid_view_rounded),
           ),
+          Container(height: 65.0, width:0),
           placeholder,
           buildTabItem(
             index: 2,
-            icon: Icon(Icons.account_circle),
+            icon: Icon(Icons.forum_outlined),
           ),
           buildTabItem(
             index: 3,
-            icon: Icon(Icons.settings),
+            icon: Icon(Icons.account_circle_rounded),
           ),
+
         ],
       ),
     );
@@ -58,7 +61,7 @@ class _TabBarMaterialWidgetState extends State<TabBarMaterialWidget> {
 
     return IconTheme(
       data: IconThemeData(
-        color: isSelected ? Colors.red : Colors.black,
+        color: isSelected ? Colors.green : Colors.grey,
       ),
       child: IconButton(
         icon: icon,
