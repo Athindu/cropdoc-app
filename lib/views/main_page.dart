@@ -42,6 +42,7 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
+    resizeToAvoidBottomInset: false,
     extendBody: true,
     //body: pages[index],
     body: IndexedStack(
