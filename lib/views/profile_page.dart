@@ -1,4 +1,7 @@
+import 'package:cropdoc_app/views/register_page.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -12,6 +15,8 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
+
+    List sIcons = [ "google_icon.png", "fb_icon.png" ];
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -38,7 +43,7 @@ class _ProfilePageState extends State<ProfilePage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height:50,),
+                  SizedBox(height:30,),
                   Container(
                     height: 50,
                     decoration: BoxDecoration(
@@ -121,7 +126,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ],
               ),
             ),
-            SizedBox(height:40,),
+            SizedBox(height:30,),
             Container(
               width: w*0.4,
               height: 50,
@@ -145,7 +150,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
               ),
             ),
-            SizedBox(height:20,),
+            SizedBox(height:15,),
             RichText(text: TextSpan(
               text:"Don\'t have an account?",
               style: TextStyle(
@@ -160,9 +165,64 @@ class _ProfilePageState extends State<ProfilePage> {
                   fontSize: 15,
                   fontWeight: FontWeight.bold,
                 ),
+                  recognizer: TapGestureRecognizer()..onTap=()=> Get.to(()=>RegisterPage())
                 )
               ]
             ),
+            ),
+            SizedBox(height:12,),
+            Row(
+              children: <Widget>[
+                Expanded(
+                  child: new Container(
+                    margin: const EdgeInsets.only(left: 40, right: 15),
+                    child: Divider(
+                      height:40,
+                      thickness:2,
+                      color: Colors.blueGrey[100],
+                      // indent: 60,
+                      // endIndent: 200,
+                    ),
+                  ),
+                ),
+                Text("OR"),
+                Expanded(
+                  child: new Container(
+                    margin: const EdgeInsets.only(left: 15, right: 40),
+                    child: Divider(
+                      height:40,
+                      thickness:2,
+                      color: Colors.blueGrey[100],
+                      // indent: 60,
+                      // endIndent: 200,
+                    ),
+                  ),
+                ),
+              ]
+            ),
+            RichText(text: TextSpan(
+                text:"Login with",
+                style: TextStyle(
+                  color: Colors.grey[500],
+                  fontSize: 15,
+                )
+            ),),
+            Wrap(
+              children: List<Widget>.generate(
+                  2,
+                      (index){
+                    return Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: CircleAvatar(
+                        backgroundColor: Colors.white,
+                        radius:20,
+                        backgroundImage: AssetImage(
+                            "assets/images/"+ sIcons[index]
+                        ),
+                      ),
+                    );
+                  }
+              ),
             ),
 
           ],

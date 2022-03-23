@@ -33,7 +33,7 @@ dependencies:
   shared_preferences: ^2.0.13
   flutter_native_splash: ^2.1.1
   flutter_keyboard_visibility: ^5.2.0
-
+  get:
 
 
   # The following adds the Cupertino Icons font to your application.

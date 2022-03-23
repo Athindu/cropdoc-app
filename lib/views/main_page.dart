@@ -2,13 +2,14 @@ import 'package:cropdoc_app/views/community_page.dart';
 import 'package:cropdoc_app/views/home_page.dart';
 import 'package:cropdoc_app/views/list_page.dart';
 import 'package:cropdoc_app/views/profile_page.dart';
+import 'package:cropdoc_app/views/register_page.dart';
 import 'package:flutter/material.dart';
 import '../widgets/tabbar_material_widget.dart';
 
 
 
 class MainView extends StatelessWidget {
-  final String title = 'BottomAppBar With Centered FAB';
+  final String title = 'CropDoc';
 
   @override
   Widget build(BuildContext context) => MaterialApp(
@@ -38,6 +39,7 @@ class _MainPageState extends State<MainPage> {
     ListPage(),
     CommunityPage(),
     ProfilePage(),
+    //RegisterPage(),
   ];
 
   @override
