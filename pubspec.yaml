@@ -80,3 +80,6 @@ flutter:
     -  family: Klasik
        fonts:
          - asset: assets/fonts/Klasik Regular.otf
+    -  family: Raleway
+       fonts:
+         - asset: assets/fonts/Raleway-Regular.ttf

@@ -16,7 +16,7 @@ class MainView extends StatelessWidget {
   Widget build(BuildContext context) => MaterialApp(
     debugShowCheckedModeBanner: false,
     title: title,
-    theme: ThemeData(primarySwatch: createMaterialColor(Color(0xFF329760))),
+    theme: ThemeData(primarySwatch: createMaterialColor(Color(0xFF62bf76))),
     home: MainPage(title: title),
   );
 
@@ -78,7 +78,7 @@ class _MainPageState extends State<MainPage> {
       onChangedTab: onChangedTab,
     ),
     floatingActionButton: FloatingActionButton(
-      child: Icon(Icons.center_focus_weak),
+      child: Icon(Icons.center_focus_weak, color: Colors.white),
       onPressed: () => print('Hello World'),
     ),
     floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

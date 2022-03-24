@@ -1,3 +1,4 @@
+import 'package:cropdoc_app/app_styles.dart';
 import 'package:cropdoc_app/theme/custom_appbar.dart';
 import 'package:cropdoc_app/views/user_profile_page.dart';
 import 'package:flutter/material.dart';
@@ -15,13 +16,13 @@ class ProfilePage extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0.0,
         toolbarHeight: 70,
-        title: Text("Profile", style:TextStyle(fontWeight: FontWeight.bold, fontSize: 24,)),
+        title: Text("Profile", style:TextStyle(fontWeight: FontWeight.bold, fontSize: 22, color: Colors.white)),
         centerTitle: true,
         flexibleSpace: Container( //#11998e  #38ef7d
           decoration: BoxDecoration(
               borderRadius: BorderRadius.only(bottomLeft: Radius.circular(40),bottomRight: Radius.circular(40)),
               gradient: LinearGradient(
-                  colors: [createMaterialColor(Color(0xFF11998e)),createMaterialColor(Color(0xFFa8e063))],
+                  colors: [gradColor1,gradColor2],
                   begin: Alignment.bottomCenter,
                   end: Alignment.topCenter
               )

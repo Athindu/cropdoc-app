@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
           textTheme: GoogleFonts.manropeTextTheme(
             Theme.of(context).textTheme,
           ),
-          primarySwatch: createMaterialColor(Color(0xFF329760)),
+          primarySwatch: createMaterialColor(Color(0xFF62bf76)),
         ),
         home: seenOnboard == true ? MainView() : OnBoardingPage(),
       ),
