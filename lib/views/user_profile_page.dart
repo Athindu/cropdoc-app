@@ -26,7 +26,7 @@ class UserProfile extends StatelessWidget {
               body: SingleChildScrollView(
                 child: Column(
                   children: [
-                    SizedBox(height:20,),
+                    SizedBox(height:70,),
                     Container(
                       margin: const EdgeInsets.only(left: 40, right: 40),
                       width: 300,

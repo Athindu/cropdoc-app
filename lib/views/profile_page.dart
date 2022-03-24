@@ -11,17 +11,20 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:  AppBar(
-        toolbarHeight: 120,
+      appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0.0,
-        flexibleSpace: ClipPath(
-          clipper: Customshape(),
-          child: Container(
-            height: 150,
-            width: MediaQuery.of(context).size.width,
-            color: createMaterialColor(Color(0xFF329760)),
-            child: Center(child: Text("Profile",style: TextStyle(fontSize: 20,color: Colors.white),)),
+        toolbarHeight: 70,
+        title: Text("Profile", style:TextStyle(fontWeight: FontWeight.bold, fontSize: 24,)),
+        centerTitle: true,
+        flexibleSpace: Container( //#11998e  #38ef7d
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(bottomLeft: Radius.circular(40),bottomRight: Radius.circular(40)),
+              gradient: LinearGradient(
+                  colors: [createMaterialColor(Color(0xFF11998e)),createMaterialColor(Color(0xFFa8e063))],
+                  begin: Alignment.bottomCenter,
+                  end: Alignment.topCenter
+              )
           ),
         ),
       ),

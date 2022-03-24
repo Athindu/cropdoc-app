@@ -61,7 +61,7 @@ class _TabBarMaterialWidgetState extends State<TabBarMaterialWidget> {
 
     return IconTheme(
       data: IconThemeData(
-        color: isSelected ? createMaterialColor(Color(0xFF03c03c)) : Colors.grey,
+        color: isSelected ? createMaterialColor(Color(0xFF56ab2f)) : Colors.grey,
       ),
       child: IconButton(
         icon: icon,
