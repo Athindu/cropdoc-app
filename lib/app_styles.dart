@@ -5,6 +5,7 @@ const Color kPrimaryColor = Color(0xffFC9D45);
 const Color kSecondaryColor = Color(0xff573353);
 const Color kScaffoldBackground = Color(0xffFFF3E9);
 
+
 final kTitle = TextStyle(
   fontFamily: 'Klasik',
   fontSize: SizeConfig.blockSizeH! * 7,
