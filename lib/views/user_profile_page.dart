@@ -52,7 +52,7 @@ class UserProfile extends StatelessWidget {
                     IconButton(onPressed: () => {
                       Navigator.push(context, MaterialPageRoute(builder:(context) => SignInPage()))
                     },
-                      icon: Icon(Icons.arrow_circle_right, size: 50, color: createMaterialColor(Color(0xFF36454F)) ),)
+                      icon: Icon(Icons.arrow_circle_right, size: 50, color: createMaterialColor(Color(0xFFA9A9A9)) ),)
 
                   ],
                 ),
