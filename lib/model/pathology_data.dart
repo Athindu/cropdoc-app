@@ -97,51 +97,67 @@ class PathologyDetailsScreen extends StatelessWidget {
                       style: TextStyle(fontSize: 30, fontFamily: 'Raleway',
                         fontWeight: FontWeight.w900, ),
                     ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Row(
-                      children: <Widget>[
-                        Container(
-                          decoration: BoxDecoration(
-                              border: Border.all(color: Colors.grey),
-                              borderRadius: BorderRadius.circular(3)),
-                          child: Padding(
-                            padding: const EdgeInsets.all(6.0),
-                            child: Text("Interior"),
-                          ),
-                        ),
-                        SizedBox(
-                          width: 20,
-                        ),
-                        Container(
-                          decoration: BoxDecoration(
-                              border: Border.all(color: Colors.grey),
-                              borderRadius: BorderRadius.circular(3)),
-                          child: Padding(
-                            padding: const EdgeInsets.all(6.0),
-                            child: Text("40m2"),
-                          ),
-                        ),
-                        SizedBox(
-                          width: 20,
-                        ),
-                        Container(
-                          decoration: BoxDecoration(
-                              border: Border.all(color: Colors.grey),
-                              borderRadius: BorderRadius.circular(3)),
-                          child: Padding(
-                            padding: const EdgeInsets.all(6.0),
-                            child: Text("Ideas"),
-                          ),
-                        )
-                      ],
-                    ),
+                    //Description
                     SizedBox(height: 20,),
                     Text("Nobody wants to stare at a blank wall all day long, which is why wall art is such a crucial step in the decorating process. And once you start brainstorming, the rest is easy. From gallery walls to DIY pieces like framing your accessories and large-scale photography, we've got plenty of wall art ideas to spark your creativity. And where better to look for inspiration that interior designer-decorated walls",style: TextStyle(
                         fontSize: 15, height: 1.7,
                     ),),
-                    SizedBox(height: 20,),
+                    Divider(
+                      height:40,
+                      thickness:2,
+                      color: Colors.blueGrey[100],
+                      indent: 30,
+                      endIndent: 30,
+                    ),
+
+                    //Organic Control
+                    Text("Organic Control",style: TextStyle(
+                      fontSize: 18, fontFamily: 'Raleway', fontWeight: FontWeight.bold,
+                    ),),
+                    SizedBox(height: 10,),
+                    Text("Nobody wants to stare at a blank wall all day long, which is why wall art is such a crucial step in the decorating process.",style: TextStyle(
+                      fontSize: 15, height: 1.7,
+                    ),),
+                    Divider(
+                      height:40,
+                      thickness:2,
+                      color: Colors.blueGrey[100],
+                      indent: 30,
+                      endIndent: 30,
+                    ),
+
+
+                    //Chemical Control
+                    Text("Chemical Control",style: TextStyle(
+                      fontSize: 18, fontFamily: 'Raleway', fontWeight: FontWeight.bold,
+                    ),),
+                    SizedBox(height: 10,),
+                    Text("Nobody wants to stare at a blank wall all day long, which is why wall art is such a crucial step in the decorating process.",style: TextStyle(
+                      fontSize: 15, height: 1.7,
+                    ),),
+                    Divider(
+                      height:40,
+                      thickness:2,
+                      color: Colors.blueGrey[100],
+                      indent: 30,
+                      endIndent: 30,
+                    ),
+
+                    //Preventive Measures
+                    Text("Preventive Measures",style: TextStyle(
+                      fontSize: 18, fontFamily: 'Raleway', fontWeight: FontWeight.bold,
+                    ),),
+                    SizedBox(height: 10,),
+                    Text("Nobody wants to stare at a blank wall all day long, which is why wall art is such a crucial step in the decorating process.",style: TextStyle(
+                      fontSize: 15, height: 1.7,
+                    ),),
+                    Divider(
+                      height:40,
+                      thickness:2,
+                      color: Colors.blueGrey[100],
+                      indent: 30,
+                      endIndent: 30,
+                    ),
 
                     Text("More Images",style: TextStyle(
                         fontSize: 18, fontFamily: 'Raleway', fontWeight: FontWeight.bold,
