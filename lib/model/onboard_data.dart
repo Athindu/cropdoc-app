@@ -1,28 +1,34 @@
 class OnBoarding {
   final String title;
   final String image;
+  final String description;
 
   OnBoarding({
     required this.title,
     required this.image,
+    required this.description,
   });
 }
 
 List<OnBoarding> onboardingContents = [
   OnBoarding(
-    title: 'Welcome to\n Monumental habits',
-    image: 'assets/images/onboarding_image_1.png',
+    title: 'Welcome to\n CropDoc',
+    image: 'assets/images/welcome.gif',
+    description: 'welcome',
   ),
   OnBoarding(
-    title: 'Create new habits easily',
-    image: 'assets/images/onboarding_image_2.png',
+    title: 'Identify the pathologies',   //pathology identification
+    image: 'assets/images/pathology.gif',
+    description: 'Input image and we will identify the pathology',
   ),
   OnBoarding(
-    title: 'Keep track of your progress',
-    image: 'assets/images/onboarding_image_3.png',
+    title: 'Apply suggested treatment',   //treatment
+    image: 'assets/images/treatment.gif',
+    description: 'Organic or Chemical control, We',
   ),
   OnBoarding(
-    title: 'Join a supportive community',
-    image: 'assets/images/onboarding_image_4.png',
+    title: 'Community Support',   //community
+    image: 'assets/images/forum.gif',
+    description: 'Receive expert opinion, advice to all your agricultural problems',
   ),
 ];

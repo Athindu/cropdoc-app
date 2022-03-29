@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
     create: (context) => GoogleSignInProvider(),
     child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Habit App',
+        title: 'CropDoc App',
         theme: ThemeData(
           textTheme: GoogleFonts.manropeTextTheme(
             Theme.of(context).textTheme,

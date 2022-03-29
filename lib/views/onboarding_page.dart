@@ -89,27 +89,10 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                   SizedBox(
                     height: sizeV * 5,
                   ),
-                  RichText(
+                  Text(
+                    onboardingContents[index].description,
+                    style: kBodyText1,
                     textAlign: TextAlign.center,
-                    text: TextSpan(
-                      style: kBodyText1,
-                      children: [
-                        TextSpan(text: 'WE CAN '),
-                        TextSpan(
-                            text: 'HELP YOU ',
-                            style: TextStyle(
-                              color: kPrimaryColor,
-                            )),
-                        TextSpan(text: 'TO BE A BETTER '),
-                        TextSpan(text: 'VERSION OF '),
-                        TextSpan(
-                          text: 'YOURSELF ',
-                          style: TextStyle(
-                            color: kPrimaryColor,
-                          ),
-                        ),
-                      ],
-                    ),
                   ),
                   SizedBox(
                     height: sizeV * 5,
@@ -132,7 +115,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                                 builder: (context) => MainView(),
                               ));
                         },
-                        bgColor: kPrimaryColor,
+                        bgColor: primaryColor,
                       )
                     : Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
