@@ -1,4 +1,4 @@
-import 'package:cropdoc_app/views/community_page.dart';
+import 'package:cropdoc_app/views/forum_page.dart';
 import 'package:cropdoc_app/views/home_page.dart';
 import 'package:cropdoc_app/views/list_page.dart';
 import 'package:cropdoc_app/views/profile_page.dart';

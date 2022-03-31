@@ -14,6 +14,8 @@ const Color gradColor2 = Color(0xFFa8e063);
 
 const Color whiteGrad = Color(0xE6ffffff);
 
+const Color darkGray = Color(0xFF616161);
+
 final kTitle = TextStyle(
   fontFamily: 'Klasik',
   fontSize: SizeConfig.blockSizeH! * 7,

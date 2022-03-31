@@ -1,3 +1,5 @@
+import 'package:cropdoc_app/components/body_forum.dart';
+import 'package:cropdoc_app/views/user_forum_page.dart';
 import 'package:flutter/material.dart';
 
 
@@ -6,11 +8,6 @@ class CommunityPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context)  => Scaffold(
-    appBar: AppBar(
-      title: Text('Community'),
-    ),
-    body: Center(
-      child: Text('Community'),
-    ),
+    body: ForumData(),
   );
 }
