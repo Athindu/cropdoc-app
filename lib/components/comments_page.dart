@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cropdoc_app/app_styles.dart';
 import 'package:cropdoc_app/resources/firestore_post.dart';
 import 'package:cropdoc_app/widgets/comment_view.dart';
@@ -32,7 +33,31 @@ class _CommentsScreenState extends State<CommentsScreen> {
         title: const Text('Comments'),
         centerTitle: false,
       ),
-      body: CommentView(),
+      // body: CommentView(),
+      body: StreamBuilder(
+        stream: FirebaseFirestore.instance
+            .collection('posts')
+            .doc(widget.snap['postId'])
+            .collection('comments')
+            .orderBy('datePublished', descending: true)
+            .snapshots(),
+        builder: (context, snapshot){
+          if(snapshot.connectionState == ConnectionState.waiting){
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+
+          return ListView.builder(
+            itemCount: (snapshot.data! as dynamic).docs.length,
+            itemBuilder: (context, index) => CommentView(
+              snap: (snapshot.data! as dynamic).docs[index].data(),
+            ),
+          );
+        }
+      ),
+
+
       bottomNavigationBar: SafeArea(
         child: Container(
           height: kToolbarHeight,
@@ -65,6 +90,9 @@ class _CommentsScreenState extends State<CommentsScreen> {
                       user.uid,
                       user.displayName!,
                       user.photoURL!);
+                  setState(() {
+                    _commentController.text = "";
+                  });
                 },
                 child: Container(
                   padding:

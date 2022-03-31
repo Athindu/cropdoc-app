@@ -1,7 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cropdoc_app/app_styles.dart';
 import 'package:cropdoc_app/components/comments_page.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+
+import '../utils/utils.dart';
 
 class PostView extends StatefulWidget {
   final snap;
@@ -13,6 +17,26 @@ class PostView extends StatefulWidget {
 }
 
 class _PostViewState extends State<PostView> {
+
+  int commentLength = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    getComments();
+  }
+
+  void getComments() async {
+    try {
+      QuerySnapshot snap =  await FirebaseFirestore.instance.collection('posts').doc(widget.snap['postId']).collection('comments').get();
+
+      commentLength = snap.docs.length;
+    } catch (e) {
+      showSnackbar(e.toString(),context);
+    }
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -92,10 +116,13 @@ class _PostViewState extends State<PostView> {
                   ),
                 ),
                 InkWell(
-                  onTap: () {},
+                  onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => CommentsScreen(
+                        snap: widget.snap,
+                      ))),
                   child: Container(
                       padding: const EdgeInsets.symmetric(vertical: 4),
-                      child: Text('View all comments',
+                      child: Text('View all $commentLength comments',
                           style:
                               const TextStyle(fontSize: 14, color: darkGray))),
                 ),
@@ -114,4 +141,6 @@ class _PostViewState extends State<PostView> {
       ),
     );
   }
+
+
 }
