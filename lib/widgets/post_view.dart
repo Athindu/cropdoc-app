@@ -1,12 +1,18 @@
 import 'package:cropdoc_app/app_styles.dart';
+import 'package:cropdoc_app/components/comments_page.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-class PostView extends StatelessWidget {
+class PostView extends StatefulWidget {
   final snap;
 
   const PostView({Key? key, required this.snap}) : super(key: key);
 
+  @override
+  State<PostView> createState() => _PostViewState();
+}
+
+class _PostViewState extends State<PostView> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,9 +28,7 @@ class PostView extends StatelessWidget {
               children: [
                 CircleAvatar(
                   radius: 16,
-                  backgroundImage: NetworkImage(
-                    snap['profImage']
-                  ),
+                  backgroundImage: NetworkImage(widget.snap['profImage']),
                 ),
                 Expanded(
                   child: Padding(
@@ -33,7 +37,7 @@ class PostView extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text( snap['username'] ,
+                        Text(widget.snap['username'],
                             style: TextStyle(fontWeight: FontWeight.bold))
                       ],
                     ),
@@ -46,14 +50,19 @@ class PostView extends StatelessWidget {
             height: MediaQuery.of(context).size.height * 0.3,
             width: double.infinity,
             child: Image.network(
-              snap['postUrl'],
+              widget.snap['postUrl'],
               fit: BoxFit.cover,
             ),
           ),
           Row(
             children: [
               IconButton(onPressed: () {}, icon: const Icon(Icons.thumb_up)),
-              IconButton(onPressed: () {}, icon: const Icon(Icons.add_comment)),
+              IconButton(
+                  onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => CommentsScreen(
+                            snap: widget.snap,
+                          ))),
+                  icon: const Icon(Icons.add_comment)),
             ],
           ),
           Container(
@@ -72,11 +81,11 @@ class PostView extends StatelessWidget {
                       style: const TextStyle(color: Colors.black),
                       children: [
                         TextSpan(
-                          text: snap['username'],
+                          text: widget.snap['username'],
                           style: const TextStyle(fontWeight: FontWeight.bold),
                         ),
                         TextSpan(
-                          text: '   ${snap['description']}',
+                          text: '   ${widget.snap['description']}',
                         ),
                       ],
                     ),
@@ -93,9 +102,9 @@ class PostView extends StatelessWidget {
                 Container(
                     padding: const EdgeInsets.symmetric(vertical: 4),
                     child: Text(
-                      DateFormat.yMMMd().format(
-                        snap['datePublished'].toDate(),
-                      ),
+                        DateFormat.yMMMd().format(
+                          widget.snap['datePublished'].toDate(),
+                        ),
                         style:
                             const TextStyle(fontSize: 14, color: Colors.grey))),
               ],
