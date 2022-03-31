@@ -16,6 +16,9 @@ const Color whiteGrad = Color(0xE6ffffff);
 
 const Color darkGray = Color(0xFF616161);
 
+const Color iconColor = Color(0xFFA9A9A9);
+const Color loginColor = Color(0xFF36454F);
+
 final kTitle = TextStyle(
   fontFamily: 'Klasik',
   fontSize: SizeConfig.blockSizeH! * 7,

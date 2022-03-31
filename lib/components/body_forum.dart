@@ -2,7 +2,6 @@ import 'dart:typed_data';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cropdoc_app/app_styles.dart';
-import 'package:cropdoc_app/components/post_add.dart';
 import 'package:cropdoc_app/resources/firestore_post.dart';
 import 'package:cropdoc_app/utils/utils.dart';
 import 'package:cropdoc_app/widgets/post_view.dart';

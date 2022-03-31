@@ -32,6 +32,14 @@ class _CommentsScreenState extends State<CommentsScreen> {
       appBar: AppBar(
         title: const Text('Comments'),
         centerTitle: false,
+        backgroundColor: Colors.transparent,
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  colors: [gradColor1, gradColor2],
+                  begin: Alignment.topRight,
+                  end: Alignment.bottomLeft)),
+        ),
       ),
       // body: CommentView(),
       body: StreamBuilder(
@@ -64,6 +72,9 @@ class _CommentsScreenState extends State<CommentsScreen> {
           margin: EdgeInsets.only(
             bottom: MediaQuery.of(context).viewInsets.bottom,
           ),
+          decoration: BoxDecoration(
+              color: Colors.white,
+              border: Border(top: BorderSide(color: Colors.grey[300]!, width: 1))),
           padding: const EdgeInsets.only(left: 16, right: 8),
           child: Row(
             children: [
@@ -77,7 +88,7 @@ class _CommentsScreenState extends State<CommentsScreen> {
                   child: TextField(
                     controller: _commentController,
                       decoration: InputDecoration(
-                    hintText: 'Add your comment',
+                    hintText: 'Type your comment',
                     border: InputBorder.none,
                   )),
                 ),
@@ -96,10 +107,10 @@ class _CommentsScreenState extends State<CommentsScreen> {
                 },
                 child: Container(
                   padding:
-                      const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
+                      const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
                   child: const Text(
                     'Post',
-                    style: TextStyle(color: kPrimaryColor),
+                    style: TextStyle(color: kPrimaryColor, fontSize:16, fontWeight: FontWeight.bold),
                   ),
                 ),
               ),
