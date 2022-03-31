@@ -114,64 +114,6 @@ class _HomePageState extends State<HomePage> {
     ]));
   }
 
-  MaterialColor createMaterialColor(Color color) {
-    List strengths = <double>[.05];
-    Map<int, Color> swatch = {};
-    final int r = color.red, g = color.green, b = color.blue;
 
-    for (int i = 1; i < 10; i++) {
-      strengths.add(0.1 * i);
-    }
-    for (var strength in strengths) {
-      final double ds = 0.5 - strength;
-      swatch[(strength * 1000).round()] = Color.fromRGBO(
-        r + ((ds < 0 ? r : (255 - r)) * ds).round(),
-        g + ((ds < 0 ? g : (255 - g)) * ds).round(),
-        b + ((ds < 0 ? b : (255 - b)) * ds).round(),
-        1,
-      );
-    }
-    ;
-    return MaterialColor(color.value, swatch);
-  }
 }
 
-class MyClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    var path = new Path();
-    // path.lineTo(0, size.height-50);
-    // var controlPoint = Offset(50,size.height);
-    // var endPoint = Offset(size.width/2,size.height);
-    // path.quadraticBezierTo(controlPoint.dx, controlPoint.dy, endPoint.dx, endPoint.dy);
-    // path.lineTo(size.width, size.height);
-    // path.lineTo(size.width, 0);
-
-    path.lineTo(0, size.height);
-    var firstEndPoint = new Offset(0, size.height);
-    var firstControlPoint = new Offset(35, size.height * 7 / 10);
-    path.quadraticBezierTo(firstEndPoint.dx, firstEndPoint.dy,
-        firstControlPoint.dx, firstControlPoint.dy);
-
-    //path.lineTo(size.width, size.height* 6/10);
-    //path.quadraticBezierTo(x1, y1, x2, y2);
-
-    path.lineTo(size.width, size.height * 7 / 10);
-    path.lineTo(size.width, 0);
-    path.close();
-
-    // path.quadraticBezierTo(size.width/4, size.height-60, size.width, size.height-40) ;
-    //
-    // path.quadraticBezierTo(3/4 * size.width, size.height, size.width, size.height-40 ) ;
-    //
-    // path.lineTo(size.width, 0) ;
-
-    return path;
-  }
-
-  @override
-  bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
-    // TODO: implement shouldReclip
-    return true;
-  }
-}
