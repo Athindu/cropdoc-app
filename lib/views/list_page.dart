@@ -19,7 +19,7 @@ class ListPage extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0.0,
-          toolbarHeight: 70,
+          toolbarHeight: 60,
           title: Text("Pathologies",
               style: TextStyle(
                   fontWeight: FontWeight.bold,

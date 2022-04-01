@@ -15,7 +15,7 @@ class ProfilePage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0.0,
-        toolbarHeight: 70,
+        toolbarHeight: 60,
         title: Text("Profile", style:TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.white, fontFamily: 'Raleway')),
         centerTitle: true,
         flexibleSpace: Container( //#11998e  #38ef7d
