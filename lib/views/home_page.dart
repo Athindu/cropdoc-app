@@ -1,8 +1,12 @@
 import 'package:cropdoc_app/app_styles.dart';
+import 'package:cropdoc_app/model/forecast.dart';
+import 'package:cropdoc_app/model/location.dart';
+import 'package:cropdoc_app/utils/string_extension.dart';
 import 'package:cropdoc_app/views/sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -13,6 +17,54 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   //final user = FirebaseAuth.instance.currentUser!;
+
+  late LocationHelper locationData;
+  late WeatherData weatherData;
+
+  Future<void> getLocationData() async {
+    locationData = LocationHelper();
+    await locationData.getCurrentLocation();
+
+    if (locationData.latitude == null || locationData.longitude == null) {
+      // todo: Handle no location
+      locationData.latitude = 6.011049;
+      locationData.longitude = 80.5027014;
+    }
+
+    print(locationData.longitude);
+    print(locationData.latitude);
+  }
+
+  late int temperature;
+  late String city;
+  late double temp_min;
+  late double feels_like;
+  late String currentCondition;
+  late double temp_max;
+
+  void updateDisplayInfo(WeatherData weatherData) {
+    setState(() {
+      temperature = weatherData.currentTemperature.round();
+      city = weatherData.city;
+      temp_min = weatherData.temp_min;
+      temp_max = weatherData.temp_max;
+      feels_like = weatherData.feels_like;
+      currentCondition = weatherData.currentCondition.capitalize();
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    temperature = 25;
+    currentCondition = "Scattered clouds";
+    city = "Matara";
+    feels_like = 26.5;
+    temp_min = 25.68;
+    temp_max = 25.73;
+    internetCheck();
+    // updateDisplayInfo(widget.weatherData);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -124,85 +176,120 @@ class _HomePageState extends State<HomePage> {
                     height: 90,
                     decoration: BoxDecoration(
                         image: DecorationImage(
-                          image: AssetImage(
-                            'assets/icons/cloudy.png',
-                          ),
-                          fit: BoxFit.cover
-                        )
-                    ),
+                            image: AssetImage(
+                              'assets/images/cloudy.png',
+                            ),
+                            fit: BoxFit.cover)),
                   ),
                   //Image.asset('assets/icons/02d.png', width: 70, height:70),
                   Container(
                     margin: const EdgeInsets.only(left: 30, top: 10),
                     //margin: const EdgeInsets.all(5),
-                    child: Text(
-                      'Few Clouds Sunny',
-                      style: TextStyle(
-                        fontWeight: FontWeight.normal,
-                        fontSize: 16,
-                        color: Colors.white,
-                      )),),
+                    child: Text('$currentCondition',
+                        style: TextStyle(
+                          fontWeight: FontWeight.normal,
+                          fontSize: 16,
+                          color: Colors.white,
+                        )),
+                  ),
 
                   Container(
                     margin: const EdgeInsets.only(left: 32, top: 5),
-                    child: Text(
-                        'H: 29.5°C  |  L: 26°C',
-                        textAlign:TextAlign.left,
+                    child: Text('H: $temp_max°C  |  L: $temp_min°C',
+                        textAlign: TextAlign.left,
                         style: TextStyle(
                           fontWeight: FontWeight.normal,
                           fontSize: 13,
                           color: Colors.white,
-                        )),),
+                        )),
+                  ),
                 ],
               ),
             ),
-
             Column(
               children: [
-                SizedBox(height:20),
+                SizedBox(height: 20),
                 Container(
                   margin: const EdgeInsets.only(right: 12, top: 5),
-                  child: Text(
-                      '27°C',
-                      textAlign:TextAlign.left,
+                  child: Text(' $temperature°',
+                      textAlign: TextAlign.left,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 50,
                         color: Colors.white,
-                      )),),
-
+                      )),
+                ),
                 Container(
                   margin: const EdgeInsets.only(right: 30, top: 5),
-                  child: Text(
-                      'Feels like 28°C',
-                      textAlign:TextAlign.left,
+                  child: Text('Feels like $feels_like°C',
+                      textAlign: TextAlign.left,
                       style: TextStyle(
                         fontWeight: FontWeight.normal,
                         fontSize: 13,
                         color: Colors.white,
-                      )),),
-                SizedBox(height:24),
+                      )),
+                ),
+                SizedBox(height: 30),
                 Container(
-                  margin: const EdgeInsets.only(right: 50),
-                  child: Text(
-                      'Matara',
-                      textAlign:TextAlign.left,
+                  margin: const EdgeInsets.only(right: 10),
+                  child: Text('$city',
+                      textAlign: TextAlign.left,
                       style: TextStyle(
                         fontWeight: FontWeight.normal,
                         fontSize: 20,
                         color: Colors.white,
-                      )),),
-
+                      )),
+                ),
               ],
             ),
-
           ],
         ),
-
       ),
     ]));
   }
 
+  void internetCheck() async {
+    bool result = await InternetConnectionChecker().hasConnection;
+    if (result == true) {
+      print('Internet available');
+      getWeatherData();
+    } else {
+      print('No internet :( Reason:');
+      await getLocationData();
+      weatherData = WeatherData(locationData: locationData);
+      weatherData.getNormalWeather();
 
+      print(weatherData.currentTemperature);
+      print(weatherData.currentCondition);
+      print(weatherData.city);
+      print(weatherData.feels_like);
+      print(weatherData.temp_min);
+    }
+  }
+
+  void getWeatherData() async {
+    // Fetch the location
+
+    await getLocationData();
+    // Fetch the current weather
+    weatherData = WeatherData(locationData: locationData);
+    //print(weatherData.currentTemperature);
+    await weatherData.getCurrentTemperature();
+    if (weatherData.currentTemperature == null ||
+        weatherData.currentCondition == null ||
+        weatherData.city == null ||
+        weatherData.feels_like == null ||
+        weatherData.temp_min == null) {
+      // todo: Handle no weather
+
+    }
+
+    print(weatherData.currentTemperature);
+    print(weatherData.currentCondition);
+    print(weatherData.city);
+    print(weatherData.feels_like);
+    print(weatherData.temp_min);
+
+    updateDisplayInfo(weatherData);
+  }
 }
-
