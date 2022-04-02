@@ -224,7 +224,7 @@ class RegisterPage extends StatelessWidget {
               onTap: () {
                 final provider = Provider.of<GoogleSignInProvider>(context, listen: false);
                 provider.googleLogin();
-                Get.to(()=>ProfilePage());
+                Navigator.pop(context);
               },
               child: Wrap(
                 children: List<Widget>.generate(

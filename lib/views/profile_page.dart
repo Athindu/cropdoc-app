@@ -31,6 +31,7 @@ class ProfilePage extends StatelessWidget {
       ),
       body: UserProfile(),
       //bottomNavigationBar: ,
+
     );
   }
 

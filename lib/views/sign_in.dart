@@ -216,7 +216,8 @@ class _SignInPageState extends State<SignInPage> {
               onTap: () {
                 final provider = Provider.of<GoogleSignInProvider>(context, listen: false);
                 provider.googleLogin();
-                Get.to(()=>ProfilePage());
+                Navigator.pop(context);
+                //Get.to(()=>ProfilePage());
               },
               child: Wrap(
                 children: List<Widget>.generate(
