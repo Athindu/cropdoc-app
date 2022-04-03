@@ -23,8 +23,20 @@ class _RegisterPageState extends State<RegisterPage> {
 
   List sIcons = ["google_icon.png", "fb_icon.png"];
 
+  late AssetImage registerImage;
+
+
+  @override
+  void initState() {
+    super.initState();
+    registerImage = AssetImage("assets/images/register.gif");
+    print('${"assets/images/register.gif"} initState');
+  }
+
   @override
   void dispose() {
+    print('${"assets/images/register.gif"} dispose');
+    registerImage.evict();
     super.dispose();
     _emailController.dispose();
     _passwordController.dispose();
@@ -49,9 +61,7 @@ class _RegisterPageState extends State<RegisterPage> {
               decoration: BoxDecoration(
                   //color: Colors.red,
                   image: DecorationImage(
-                image: AssetImage(
-                  "assets/images/register.gif",
-                ),
+                image: registerImage,
                 //fit: BoxFit.cover
               )),
             ),

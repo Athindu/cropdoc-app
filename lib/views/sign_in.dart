@@ -20,9 +20,20 @@ class _SignInPageState extends State<SignInPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
+  late AssetImage loginImage;
+
+
+  @override
+  void initState() {
+    super.initState();
+    loginImage = AssetImage("assets/images/Mobile_login.gif");
+    print('${"assets/images/Mobile_login.gif"} initState');
+  }
 
   @override
   void dispose() {
+    print('${"assets/images/Mobile_login.gif"} dispose');
+    loginImage.evict();
     super.dispose();
     _emailController.dispose();
     _passwordController.dispose();
@@ -47,9 +58,7 @@ class _SignInPageState extends State<SignInPage> {
               decoration: BoxDecoration(
                 //color: Colors.red,
                   image: DecorationImage(
-                    image: AssetImage(
-                      "assets/images/Mobile_login.gif",
-                    ),
+                    image: loginImage,
                     //fit: BoxFit.cover
                   )
               ),
