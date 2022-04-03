@@ -1,4 +1,6 @@
 import 'package:cropdoc_app/model/google_sign_in.dart';
+import 'package:cropdoc_app/resources/auth_methods.dart';
+import 'package:cropdoc_app/utils/utils.dart';
 import 'package:cropdoc_app/views/profile_page.dart';
 import 'package:cropdoc_app/views/register_page.dart';
 import 'package:flutter/gestures.dart';
@@ -14,6 +16,18 @@ class SignInPage extends StatefulWidget {
 }
 
 class _SignInPageState extends State<SignInPage> {
+
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+
+  @override
+  void dispose() {
+    super.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
@@ -62,6 +76,7 @@ class _SignInPageState extends State<SignInPage> {
                       ],
                     ),
                     child: TextField(
+                        controller: _emailController,
                         decoration: InputDecoration(
                             hintText: "  Email",
                             prefixIcon: Icon(Icons.alternate_email, color: Colors.brown[300]),
@@ -102,6 +117,8 @@ class _SignInPageState extends State<SignInPage> {
                       ],
                     ),
                     child: TextField(
+                        obscureText: true,
+                        controller: _passwordController,
                         decoration: InputDecoration(
                             hintText: "  Password",
                             prefixIcon: Icon(Icons.key, color: Colors.brown[300]),
@@ -130,26 +147,29 @@ class _SignInPageState extends State<SignInPage> {
               ),
             ),
             SizedBox(height:40,),
-            Container(
-              width: w*0.4,
-              height: 50,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                  image: DecorationImage(
-                    image: AssetImage(
-                      "assets/images/btn_image.png",
+            InkWell(
+              onTap: login,
+              child: Container(
+                width: w*0.4,
+                height: 50,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                    image: DecorationImage(
+                      image: AssetImage(
+                        "assets/images/btn_image.png",
+                      ),
+                      fit: BoxFit.cover
+                    )
+                ),
+                child: Center(
+                  child: Text(
+                    "Sign In",
+                    style: TextStyle(
+                      fontSize:24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                      fontFamily: 'Klasik',
                     ),
-                    fit: BoxFit.cover
-                  )
-              ),
-              child: Center(
-                child: Text(
-                  "Sign In",
-                  style: TextStyle(
-                    fontSize:24,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                    fontFamily: 'Klasik',
                   ),
                 ),
               ),
@@ -243,5 +263,21 @@ class _SignInPageState extends State<SignInPage> {
       ),
     );
   }
+
+  void login() async{
+    String message = await AuthenticationManager().loginUser(email: _emailController.text, password: _passwordController.text);
+
+    if (message=="success"){
+      showSnackbar('User Logged in', context);
+    }
+    else{
+      showSnackbar(message, context);
+    }
+    Navigator.pop(context);
+
+  }
+
+
+
 }
 

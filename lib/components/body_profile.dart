@@ -7,11 +7,29 @@ import 'package:provider/provider.dart';
 import 'profile_menu.dart';
 import 'profile_pic.dart';
 
-class Body extends StatelessWidget {
+class Body extends StatefulWidget {
 
-  final user = FirebaseAuth.instance.currentUser!;
 
   Body({Key? key}) : super(key: key);
+
+  @override
+  State<Body> createState() => _BodyState();
+}
+
+class _BodyState extends State<Body> {
+  final user = FirebaseAuth.instance.currentUser!;
+
+  String? photo = FirebaseAuth.instance.currentUser!.photoURL;
+  String? name = FirebaseAuth.instance.currentUser!.displayName;
+
+  @override
+  void initState() {
+    if(photo == null || name == null){
+      photo = "https://images.unsplash.com/photo-1473081556163-2a17de81fc97?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80";
+      name =" ";
+    }
+    // updateDisplayInfo(widget.weatherData);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,11 +40,11 @@ class Body extends StatelessWidget {
           //ProfilePic(),
           CircleAvatar(
             radius: 50,
-            backgroundImage: NetworkImage(user.photoURL!),
+            backgroundImage: NetworkImage(photo!),
           ),
           SizedBox(height: 30),
           Text(
-            user.displayName!,
+            name!,
             style: TextStyle(color: createMaterialColor(Color(0xFF36454F)), fontSize:25, fontFamily: 'Klasik'),
           ),
           SizedBox(height: 16),
@@ -48,10 +66,11 @@ class Body extends StatelessWidget {
           ProfileMenu(
             text: "Log Out",
             //icon: "assets/icons/logout.svg",
-            press: () {
-              final provider = Provider.of<GoogleSignInProvider>(context, listen: false);
-              provider.logout();
-            },
+            // press: () {
+            //   final provider = Provider.of<GoogleSignInProvider>(context, listen: false);
+            //   provider.logout();
+            // },
+            press: signOut,
           ),
           ProfileMenu(
             text: "Exit",
@@ -64,6 +83,20 @@ class Body extends StatelessWidget {
       ),
     );
   }
+
+  void signOut() async {
+    String prov = FirebaseAuth.instance.currentUser!.providerData[0].providerId;
+    print(prov);
+    if(prov == "password"){
+      await FirebaseAuth.instance.signOut();
+    }
+    else if(prov == "google.com"){
+      final provider = Provider.of<GoogleSignInProvider>(context, listen: false);
+      provider.logout();
+    }
+    }
+
+
 
   MaterialColor createMaterialColor(Color color) {
     List strengths = <double>[.05];
@@ -84,5 +117,4 @@ class Body extends StatelessWidget {
     };
     return MaterialColor(color.value, swatch);
   }
-
 }
