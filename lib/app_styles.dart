@@ -31,6 +31,15 @@ final kBodyText1 = TextStyle(
   fontWeight: FontWeight.bold,
 );
 
+final kOnBoardText = TextStyle(
+  color: gradColor1,
+  fontSize: SizeConfig.blockSizeH! * 4.3,
+  fontWeight: FontWeight.bold,
+  fontFamily: 'Raleway',
+  letterSpacing: 1.0,
+  height: 1.5
+);
+
 final kBodyText2 = TextStyle(
   color: Colors.white,
   fontSize: 24,
@@ -43,4 +52,3 @@ final kBodyText2 = TextStyle(
         blurRadius: 10),
   ],
 );
-

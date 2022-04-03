@@ -12,23 +12,23 @@ class OnBoarding {
 
 List<OnBoarding> onboardingContents = [
   OnBoarding(
-    title: 'Welcome to\n CropDoc',
+    title: 'Welcome to CropDoc',
     image: 'assets/images/welcome.gif',
-    description: 'welcome',
+    description: 'Come hand in hand to identify problems in your cultivation by yourself',
   ),
   OnBoarding(
     title: 'Identify the pathologies',   //pathology identification
     image: 'assets/images/pathology.gif',
-    description: 'Input image and we will identify the pathology',
+    description: 'Let us have a look and help you to identify the pathology',
   ),
   OnBoarding(
     title: 'Apply suggested treatment',   //treatment
     image: 'assets/images/treatment.gif',
-    description: 'Organic or Chemical control, We',
+    description: 'Get the latest treatment modalities that suits your problem',
   ),
   OnBoarding(
     title: 'Community Support',   //community
     image: 'assets/images/forum.gif',
-    description: 'Receive expert opinion, advice to all your agricultural problems',
+    description: 'Share your thoughts and problems with the experts in the field',
   ),
 ];

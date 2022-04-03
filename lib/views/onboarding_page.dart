@@ -89,10 +89,13 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                   SizedBox(
                     height: sizeV * 5,
                   ),
-                  Text(
-                    onboardingContents[index].description,
-                    style: kBodyText1,
-                    textAlign: TextAlign.center,
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20, right: 20.0),
+                    child: Text(
+                      onboardingContents[index].description,
+                      style: kOnBoardText,
+                      textAlign: TextAlign.center,
+                    ),
                   ),
                   SizedBox(
                     height: sizeV * 5,
