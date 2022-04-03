@@ -1,4 +1,4 @@
-import 'package:cropdoc_app/app_styles.dart';
+import 'package:cropdoc_app/theme/app_styles.dart';
 import 'package:cropdoc_app/components/body_forum.dart';
 import 'package:cropdoc_app/views/sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';

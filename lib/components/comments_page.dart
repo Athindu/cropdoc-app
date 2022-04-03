@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:cropdoc_app/app_styles.dart';
+import 'package:cropdoc_app/theme/app_styles.dart';
 import 'package:cropdoc_app/resources/firestore_post.dart';
 import 'package:cropdoc_app/widgets/comment_view.dart';
 import 'package:firebase_auth/firebase_auth.dart';

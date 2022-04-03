@@ -1,4 +1,4 @@
-import 'package:cropdoc_app/app_styles.dart';
+import 'package:cropdoc_app/theme/app_styles.dart';
 import 'package:cropdoc_app/theme/custom_appbar.dart';
 import 'package:cropdoc_app/views/user_profile_page.dart';
 import 'package:flutter/material.dart';

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './size_configs.dart';
+import 'size_configs.dart';
 
 const Color kPrimaryColor = Color(0xFF097969);
 const Color kSecondaryColor = Color(0xffa8e063);

@@ -1,9 +1,9 @@
 import 'package:cropdoc_app/views/main_page.dart';
 import 'package:flutter/material.dart';
-import 'package:cropdoc_app/app_styles.dart';
+import 'package:cropdoc_app/theme/app_styles.dart';
 import 'package:cropdoc_app/main.dart';
 import 'package:cropdoc_app/model/onboard_data.dart';
-import 'package:cropdoc_app/size_configs.dart';
+import 'package:cropdoc_app/theme/size_configs.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import './pages.dart';
 import '../widgets/widgets.dart';

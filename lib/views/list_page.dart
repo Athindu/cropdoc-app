@@ -1,4 +1,4 @@
-import 'package:cropdoc_app/app_styles.dart';
+import 'package:cropdoc_app/theme/app_styles.dart';
 import 'package:cropdoc_app/views/lists/chili_list.dart';
 import 'package:cropdoc_app/views/lists/citrus_list.dart';
 import 'package:cropdoc_app/views/lists/corn_list.dart';

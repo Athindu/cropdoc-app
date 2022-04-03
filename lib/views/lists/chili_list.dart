@@ -1,4 +1,4 @@
-import 'package:cropdoc_app/app_styles.dart';
+import 'package:cropdoc_app/theme/app_styles.dart';
 import 'package:cropdoc_app/model/pathology.dart';
 import 'package:cropdoc_app/model/pathology_data.dart';
 import 'package:flutter/material.dart';

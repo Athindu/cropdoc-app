@@ -1,4 +1,4 @@
-import 'package:cropdoc_app/app_styles.dart';
+import 'package:cropdoc_app/theme/app_styles.dart';
 import 'package:cropdoc_app/model/forecast.dart';
 import 'package:cropdoc_app/model/location.dart';
 import 'package:cropdoc_app/utils/string_extension.dart';
