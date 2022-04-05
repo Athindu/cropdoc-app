@@ -72,6 +72,7 @@ class _HomePageState extends State<HomePage> {
     double h = MediaQuery.of(context).size.height;
 
     return Scaffold(
+      backgroundColor: Color(0x80ECFFDC),
         body: Column(children: <Widget>[
       Container(
           height: 230,
@@ -103,7 +104,7 @@ class _HomePageState extends State<HomePage> {
                 top: 130,
                 left: 0,
                 child: Container(
-                  height: 70,
+                  height: 65,
                   width: 320,
                   decoration: BoxDecoration(
                     color: whiteGrad,
@@ -122,10 +123,10 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               Positioned(
-                top: 150,
+                top: 148,
                 left: 20,
                 child: Text(
-                  "Welcome to CropDoc",
+                  'Welcome to CropDoc',
                   style: TextStyle(
                     color: gradColor1,
                     fontSize: 25,
@@ -156,10 +157,10 @@ class _HomePageState extends State<HomePage> {
               end: Alignment.bottomRight),
           boxShadow: [
             BoxShadow(
-                color: Colors.grey.withOpacity(0.4),
+                color: Colors.grey.withOpacity(0.3),
                 offset: Offset(-10, 10),
-                blurRadius: 15,
-                spreadRadius: 10)
+                blurRadius: 10,
+                spreadRadius: 1)
           ],
         ),
         child: Row(
@@ -241,6 +242,152 @@ class _HomePageState extends State<HomePage> {
                       )),
                 ),
               ],
+            ),
+          ],
+        ),
+      ),
+      SizedBox(height: 60),
+      Container(
+        margin: const EdgeInsets.only(left: 10, right: 10),
+        child: Row(
+          children: [
+            Container(
+              margin: const EdgeInsets.only(right: 10),
+              height: h*0.17,
+              width: w*0.3,
+              decoration: BoxDecoration(
+                color: Colors.grey.withOpacity(0.1),
+                borderRadius: BorderRadius.circular(20),
+                boxShadow: [
+                  BoxShadow(
+                    color: cardColor,
+                    spreadRadius: 1,
+                    blurRadius: 8,
+                    offset: Offset(4,4),
+                  ),
+                  BoxShadow(
+                    color: Colors.white,
+                    spreadRadius: 1,
+                    blurRadius: 8,
+                    offset: Offset(-4,-4),
+                  ),
+                ]
+              ),
+              child: Column(
+                children: [
+                  Container(
+                    margin: const EdgeInsets.only(top: 20,),
+                      height: 70,
+                      width: 70,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage(
+                                  'assets/images/card1.png'),
+                              fit: BoxFit.contain))),
+                  SizedBox(height: 5),
+                  Text("Take a picture",
+                      style: TextStyle(
+                        color: Color(0xFF575E67),
+                        fontFamily: 'Raleway',
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    textAlign: TextAlign.left,
+                  ),
+                ],
+              ),
+
+            ),
+            Container(
+              margin: const EdgeInsets.only(right: 10),
+              height: h*0.17,
+              width: w*0.3,
+              decoration: BoxDecoration(
+                  color: Colors.grey.withOpacity(0.1),
+                  borderRadius: BorderRadius.circular(20),
+                  boxShadow: [
+                    BoxShadow(
+                      color: cardColor,
+                      spreadRadius: 1,
+                      blurRadius: 8,
+                      offset: Offset(4,4),
+                    ),
+                    BoxShadow(
+                      color: Colors.white,
+                      spreadRadius: 1,
+                      blurRadius: 8,
+                      offset: Offset(-4,-4),
+                    ),
+                  ]
+              ),
+              child: Column(
+                children: [
+                  Container(
+                      margin: const EdgeInsets.only(top: 20,),
+                      height: 70,
+                      width: 70,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage(
+                                  'assets/images/card1.png'),
+                              fit: BoxFit.contain))),
+                  SizedBox(height: 5),
+                  Text("Take a picture",
+                    style: TextStyle(
+                      color: Color(0xFF575E67),
+                      fontFamily: 'Raleway',
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              height: h*0.17,
+              width: w*0.3,
+              decoration: BoxDecoration(
+                  color: Colors.grey.withOpacity(0.1),
+                  borderRadius: BorderRadius.circular(20),
+                  boxShadow: [
+                    BoxShadow(
+                      color: cardColor,
+                      spreadRadius: 1,
+                      blurRadius: 8,
+                      offset: Offset(4,4),
+                    ),
+                    BoxShadow(
+                      color: Colors.white,
+                      spreadRadius: 1,
+                      blurRadius: 8,
+                      offset: Offset(-4,-4),
+                    ),
+                  ]
+              ),
+              child: Column(
+                children: [
+                  Container(
+                      margin: const EdgeInsets.only(top: 20,),
+                      height: 70,
+                      width: 70,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage(
+                                  'assets/images/card1.png'),
+                              fit: BoxFit.contain))),
+                  SizedBox(height: 5),
+                  Text("Take a picture",
+                    style: TextStyle(
+                      color: Color(0xFF575E67),
+                      fontFamily: 'Raleway',
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                ],
+              ),
             ),
           ],
         ),
