@@ -285,14 +285,14 @@ class _HomePageState extends State<HomePage> {
                                   'assets/images/card1.png'),
                               fit: BoxFit.contain))),
                   SizedBox(height: 5),
-                  Text("Take a picture",
+                  Text("Capture",
                       style: TextStyle(
                         color: Color(0xFF575E67),
                         fontFamily: 'Raleway',
                         fontSize: 15,
                         fontWeight: FontWeight.bold,
                       ),
-                    textAlign: TextAlign.left,
+                    textAlign: TextAlign.center,
                   ),
                 ],
               ),
@@ -323,23 +323,23 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 children: [
                   Container(
-                      margin: const EdgeInsets.only(top: 20,),
-                      height: 70,
-                      width: 70,
+                      margin: const EdgeInsets.only(top: 25,),
+                      height: 60,
+                      width: 55,
                       decoration: BoxDecoration(
                           image: DecorationImage(
                               image: AssetImage(
-                                  'assets/images/card1.png'),
+                                  'assets/images/card2.png'),
                               fit: BoxFit.contain))),
-                  SizedBox(height: 5),
-                  Text("Take a picture",
+                  SizedBox(height: 10),
+                  Text("Input",
                     style: TextStyle(
                       color: Color(0xFF575E67),
                       fontFamily: 'Raleway',
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
                     ),
-                    textAlign: TextAlign.left,
+                    textAlign: TextAlign.center,
                   ),
                 ],
               ),
@@ -369,15 +369,15 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   Container(
                       margin: const EdgeInsets.only(top: 20,),
-                      height: 70,
+                      height: 65,
                       width: 70,
                       decoration: BoxDecoration(
                           image: DecorationImage(
                               image: AssetImage(
-                                  'assets/images/card1.png'),
+                                  'assets/images/card3.png'),
                               fit: BoxFit.contain))),
-                  SizedBox(height: 5),
-                  Text("Take a picture",
+                  SizedBox(height: 10),
+                  Text("Diagnosis",
                     style: TextStyle(
                       color: Color(0xFF575E67),
                       fontFamily: 'Raleway',
