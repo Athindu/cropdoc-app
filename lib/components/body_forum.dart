@@ -137,7 +137,7 @@ class _ForumDataState extends State<ForumData> {
             ),
             // body: PostView(),
             body: StreamBuilder(
-              stream: FirebaseFirestore.instance.collection('posts').snapshots(),
+              stream: FirebaseFirestore.instance.collection('posts').orderBy('datePublished', descending: true).snapshots(),
               builder: (context, AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>> snapshot){
                 if (snapshot.connectionState == ConnectionState.waiting){
                   return const Center(
