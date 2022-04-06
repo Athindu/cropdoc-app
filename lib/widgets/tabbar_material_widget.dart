@@ -25,47 +25,77 @@ class _TabBarMaterialWidgetState extends State<TabBarMaterialWidget> {
     return BottomAppBar(
       shape: CircularNotchedRectangle(),
       notchMargin: 8,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          //Container(height: 55.0),
-          buildTabItem(
-            index: 0,
-            icon: Icon(Icons.home_filled),
-          ),
-          buildTabItem(
-            index: 1,
-            icon: Icon(Icons.grid_view_rounded),
-          ),
-          Container(height: 65.0, width:0),
-          placeholder,
-          buildTabItem(
-            index: 2,
-            icon: Icon(Icons.forum_outlined),
-          ),
-          buildTabItem(
-            index: 3,
-            icon: Icon(Icons.account_circle_rounded),
-          ),
-
-        ],
+      child: SizedBox(
+        height: 60,
+        width: MediaQuery.of(context).size.width,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            //Container(height: 55.0),
+            buildTabItem(
+              index: 0,
+              icon: Icons.home_filled,
+              title: "Home",
+            ),
+            buildTabItem(
+              index: 1,
+              icon: Icons.grid_view_rounded,
+              title: "Pathologies",
+            ),
+            Container(height: 65.0, width: 0),
+            placeholder,
+            buildTabItem(
+              index: 2,
+              icon: Icons.forum_outlined,
+              title: "Forum",
+            ),
+            buildTabItem(
+              index: 3,
+              icon: Icons.account_circle_rounded,
+              title: "Profile",
+            ),
+          ],
+        ),
       ),
     );
   }
 
   Widget buildTabItem({
     required int index,
-    required Icon icon,
+    required IconData icon,
+    required String title,
   }) {
     final isSelected = index == widget.index;
 
-    return IconTheme(
-      data: IconThemeData(
-        color: isSelected ? createMaterialColor(Color(0xFF56ab2f)) : Colors.grey,
-      ),
-      child: IconButton(
-        icon: icon,
-        onPressed: () => widget.onChangedTab(index),
+    return Container(
+      // data: IconThemeData(
+      //   color: isSelected ? createMaterialColor(Color(0xFF56ab2f)) : Colors.grey,
+      // ),
+      child: Column(
+        children: [
+          IconButton(
+            icon: Icon(
+              icon,
+              size: 24,
+              color: isSelected
+                  ? createMaterialColor(Color(0xFF56ab2f))
+                  : Colors.grey,
+            ),
+            onPressed: () => widget.onChangedTab(index),
+          ),
+          Text(
+            title,
+            style: TextStyle(
+              fontSize: 11,
+              fontWeight: FontWeight.bold,
+              fontFamily: 'Raleway',
+              height: 0.1,
+              color: isSelected
+                  ? createMaterialColor(Color(0xFF56ab2f))
+                  : Colors.grey,
+            ),
+          )
+        ],
       ),
     );
   }
@@ -86,8 +116,8 @@ class _TabBarMaterialWidgetState extends State<TabBarMaterialWidget> {
         b + ((ds < 0 ? b : (255 - b)) * ds).round(),
         1,
       );
-    };
+    }
+    ;
     return MaterialColor(color.value, swatch);
   }
-
 }
