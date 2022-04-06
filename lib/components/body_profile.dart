@@ -1,4 +1,5 @@
 import 'package:cropdoc_app/model/google_sign_in.dart';
+import 'package:cropdoc_app/theme/app_styles.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -56,12 +57,12 @@ class _BodyState extends State<Body> {
           ProfileMenu(
             text: "Settings",
             //icon: "assets/icons/settings.svg",
-            press: () {},
+            press: () => showCustomSnackBar(context, 'Option is not available right now'),
           ),
           ProfileMenu(
             text: "Help Center",
             //icon: "assets/icons/logout.svg",
-            press: () {},
+            press: () => showCustomSnackBar(context, 'Option is not available right now'),
           ),
           ProfileMenu(
             text: "Log Out",
@@ -96,7 +97,33 @@ class _BodyState extends State<Body> {
     }
     }
 
+  void showCustomSnackBar(BuildContext context, String text) {
+    final snackBar = SnackBar(
+      content: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Icon(Icons.info_outline, size: 32),
+          const SizedBox(width: 16),
+          Expanded(
+            child: Text(
+              text,
+              style: TextStyle(fontSize: 16),
+            ),
+          ),
+        ],
+      ),
+      backgroundColor: Color(0xB362bf76),
+      duration: Duration(seconds: 1),
+      shape: StadiumBorder(),
+      margin: EdgeInsets.symmetric(vertical: 100, horizontal: 20),
+      behavior: SnackBarBehavior.floating,
+      elevation: 5,
+    );
 
+    Scaffold.of(context)
+      ..hideCurrentSnackBar()
+      ..showSnackBar(snackBar);
+  }
 
   MaterialColor createMaterialColor(Color color) {
     List strengths = <double>[.05];
