@@ -1,3 +1,6 @@
+import 'dart:typed_data';
+
+import 'package:cropdoc_app/utils/utils.dart';
 import 'package:cropdoc_app/views/forum_page.dart';
 import 'package:cropdoc_app/views/home_page.dart';
 import 'package:cropdoc_app/views/list_page.dart';
@@ -5,6 +8,7 @@ import 'package:cropdoc_app/views/profile_page.dart';
 import 'package:cropdoc_app/views/sign_in.dart';
 import 'package:cropdoc_app/views/register_page.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import '../widgets/tabbar_material_widget.dart';
 
 
@@ -55,6 +59,7 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   int index = 0;
+  Uint8List? _file;
 
   final pages = <Widget>[
     HomePage(),
@@ -79,7 +84,7 @@ class _MainPageState extends State<MainPage> {
     ),
     floatingActionButton: FloatingActionButton(
       child: Icon(Icons.center_focus_weak, color: Colors.white),
-      onPressed: () => print('Hello World'),
+      onPressed: () => _selectImage(context),
     ),
     floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
   );
@@ -89,4 +94,40 @@ class _MainPageState extends State<MainPage> {
       this.index = index;
     });
   }
+
+  _selectImage(BuildContext context) async {
+    return showDialog(
+        context: context,
+        builder: (context) {
+          return SimpleDialog(
+            title: const Text('Create a Post'),
+            children: [
+              SimpleDialogOption(
+                  padding: const EdgeInsets.all(20),
+                  child: const Text('Take a photo'),
+                  onPressed: () async {
+                    Navigator.of(context).pop();
+                    Uint8List file = await pickImg(ImageSource.camera);
+                    setState(() {
+                      _file = file;
+                    });
+                    //Navigator.push(context, MaterialPageRoute(builder: (context) => const AddPost()));
+                  }),
+              SimpleDialogOption(
+                  padding: const EdgeInsets.all(20),
+                  child: const Text('Choose from Gallery'),
+                  onPressed: () async {
+                    Navigator.of(context).pop();
+                    Uint8List file = await pickImg(ImageSource.gallery);
+                    setState(() {
+                      _file = file;
+                    });
+                    //Navigator.push(context, MaterialPageRoute(builder: (context) => const AddPost()));
+                  })
+            ],
+          );
+        });
+
+  }
+
 }
