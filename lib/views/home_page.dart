@@ -402,10 +402,10 @@ class _HomePageState extends State<HomePage> {
       getWeatherData();
     } else {
       print('No internet :( Reason:');
+      internetDialog();
       await getLocationData();
       weatherData = WeatherData(locationData: locationData);
       weatherData.getNormalWeather();
-
       print(weatherData.currentTemperature);
       print(weatherData.currentCondition);
       print(weatherData.city);
@@ -439,4 +439,102 @@ class _HomePageState extends State<HomePage> {
 
     updateDisplayInfo(weatherData);
   }
+
+
+  void internetDialog() async{
+    
+    showGeneralDialog(
+        context: context,
+        barrierLabel: 'label',
+        barrierDismissible: true,
+        barrierColor: Colors.black.withOpacity(0.5),
+        transitionDuration: Duration(milliseconds: 300),
+        transitionBuilder: (context, animation1, animation2, child){
+          return SlideTransition(
+            position: Tween(begin: Offset(0, 1), end: Offset(0, 0))
+                .animate(animation1),
+            child: child,
+          );
+        },
+        pageBuilder: (context,animation1,animation2){
+          return Align(
+            alignment: Alignment.center,
+            child: Container(
+              height: 400,
+              width: 350,
+              padding: const EdgeInsets.symmetric(vertical: 1, horizontal: 10),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(15),
+              ),
+              child: Material(
+                child: Container(
+                  color: Colors.white,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Image.asset(
+                        'assets/images/no_int.jpg',
+                        height:150,
+                      ),
+                      Text(
+                        'Oops!',
+                        style: TextStyle(
+                          color: Colors.red,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 25,
+                        ),
+                      ),
+                      Text(
+                        'Please connect to a internet connection to experience all of our awesome features  ☺',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.black87,
+                          fontSize: 15,
+                        ),
+                      ),
+                      Container(
+                        height: 50,
+                        width: 200,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        child: Material(
+                          borderRadius: BorderRadius.circular(30),
+                          color: Colors.red,
+                          child: MaterialButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Expanded(
+                                  child: Text(
+                                    'Okay  👍',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          );
+        },
+
+    );
+    
+  }
+
 }
