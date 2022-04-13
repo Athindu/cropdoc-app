@@ -7,6 +7,7 @@ import 'package:cropdoc_app/views/list_page.dart';
 import 'package:cropdoc_app/views/profile_page.dart';
 import 'package:cropdoc_app/views/sign_in.dart';
 import 'package:cropdoc_app/views/register_page.dart';
+import 'package:cropdoc_app/views/upload_disease_page.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import '../widgets/tabbar_material_widget.dart';
@@ -84,7 +85,12 @@ class _MainPageState extends State<MainPage> {
     ),
     floatingActionButton: FloatingActionButton(
       child: Icon(Icons.center_focus_weak, color: Colors.white),
-      onPressed: () => _selectImage(context),
+      onPressed: () => {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => const UploadDisease()))
+      },
     ),
     floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
   );
