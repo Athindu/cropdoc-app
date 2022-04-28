@@ -46,9 +46,10 @@ class WeatherData {
   void getNormalWeather() {
     currentTemperature = 25.73;
     currentCondition = "scattered clouds";
-    city = "Matara";
+    city = "Loading..";
     feels_like = 26.5;
     temp_min = 25.68;
+    temp_max = 26.9;
   }
 
 }

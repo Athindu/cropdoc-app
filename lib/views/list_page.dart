@@ -16,6 +16,7 @@ class ListPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Scaffold(
+        backgroundColor: Colors.green[50],
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0.0,
@@ -38,14 +39,13 @@ class ListPage extends StatelessWidget {
                     end: Alignment.topCenter)),
           ),
         ),
-        backgroundColor: Color(0x40ECFFDC),
         body: ListView(
           children: <Widget>[
             SizedBox(height: 20.0),
             Container(
                 padding: EdgeInsets.only(left: 20, right: 20),
                 width: MediaQuery.of(context).size.width - 30.0,
-                height: MediaQuery.of(context).size.height - 200.0,
+                height: MediaQuery.of(context).size.height - 170 ,
                 child: GridView.count(
                   crossAxisCount: 2,
                   primary: false,
@@ -424,7 +424,7 @@ class ListPage extends StatelessWidget {
                     ),
                   ],
                 )),
-            SizedBox(height: 100)
+            //SizedBox(height: 200)
           ],
         ),
       );

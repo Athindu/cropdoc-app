@@ -113,7 +113,7 @@ class _BodyState extends State<Body> {
         ],
       ),
       backgroundColor: Color(0xB362bf76),
-      duration: Duration(seconds: 1),
+      duration: Duration(milliseconds: 1500),
       shape: StadiumBorder(),
       margin: EdgeInsets.symmetric(vertical: 100, horizontal: 20),
       behavior: SnackBarBehavior.floating,
