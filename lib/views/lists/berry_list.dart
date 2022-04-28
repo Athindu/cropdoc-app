@@ -10,6 +10,7 @@ class BerryList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Colors.green[50],
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0.0,

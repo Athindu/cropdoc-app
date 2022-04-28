@@ -2,221 +2,451 @@ class Pathology {
   String title;
   String description;
   String imageUrl;
+  String orgControl;
+  String chemControl;
+  String measures;
+  String sinTitle;
+  String sinDescription;
+  String sinOrgControl;
+  String sinChemControl;
+  String sinMeasures;
 
   Pathology({
     required this.title,
     required this.description,
     required this.imageUrl,
+    required this.orgControl,
+    required this.chemControl,
+    required this.measures,
+    required this.sinTitle,
+    required this.sinDescription,
+    required this.sinOrgControl,
+    required this.sinChemControl,
+    required this.sinMeasures,
   });
 }
 
 List<Pathology> riceList = [
   Pathology(
-      title: 'Rice Blast',
-      description:
-          '..............................................',
-      imageUrl:
-          'assets/images/rice_blast.png'),
+    title: 'Rice Blast',
+    description:
+        'Rice blast, caused by a fungus, affects all the above-ground parts of the plant: leaf, collar, node, neck, parts of panicle, and sometimes leaf sheath. Leaves exhibit yellow to light green chlorotic, eye-shaped lesions with pointed ends. The borders of these lesions are necrotic and the center is grey to white. The size of the lesions depends on the age of the plant, the variety and the time of infection. As the lesions grow, the leaves dry out gradually, occasionally causing the complete death of seedling or young plants.',
+    imageUrl: 'assets/images/rice_blast.png',
+    orgControl:
+        'No effective organic control yet. Please refer to chemical control & preventive measures.',
+    chemControl:
+        'Fungicides containing azoxystrobin, or active ingredients of the family of triazoles or strobilurins can also be sprayed at nursery, tillering and panicle emergence stages to control rice blast. One or two fungicide applications at heading can be effective in controlling the disease.',
+    measures:
+        '- Avoid excessive nitrogen fertilization and split the applications into two or more treatments.\n- Maintain continuous flooding and avoid drainage of the rice field.\n- Apply silicon fertilizers if the soil is known to be silicon deficient.\n- Destroy all infected plant residues to prevent the carry-over of the fungus in the field.',
+    sinTitle: '',
+    sinDescription: '',
+    sinOrgControl: '',
+    sinChemControl: '',
+    sinMeasures: '',
+  ),
   Pathology(
-      title: 'Rice Hispa',
-      description:
-      '..............................................',
-      imageUrl: 'assets/images/rice_hispa.png'),
+    title: 'Rice Hispa',
+    description: '..............................................',
+    imageUrl: 'assets/images/rice_hispa.png',
+    orgControl: '',
+    chemControl: '',
+    measures: '',
+    sinTitle: '',
+    sinDescription: '',
+    sinOrgControl: '',
+    sinChemControl: '',
+    sinMeasures: '',
+  ),
   Pathology(
-      title: 'Iron Deficiency',
-      description:
-      '..............................................',
-      imageUrl: 'assets/images/rice_iron.png'),
+    title: 'Iron Deficiency',
+    description: '..............................................',
+    imageUrl: 'assets/images/rice_iron.png',
+    orgControl: '',
+    chemControl: '',
+    measures: '',
+    sinTitle: '',
+    sinDescription: '',
+    sinOrgControl: '',
+    sinChemControl: '',
+    sinMeasures: '',
+  ),
   Pathology(
-      title: 'Nitrogen Deficiency',
-      description:
-      '..............................................',
-      imageUrl: 'assets/images/rice_nitrogen.png'),
+    title: 'Nitrogen Deficiency',
+    description: '..............................................',
+    imageUrl: 'assets/images/rice_nitrogen.png',
+    orgControl: '',
+    chemControl: '',
+    measures: '',
+    sinTitle: '',
+    sinDescription: '',
+    sinOrgControl: '',
+    sinChemControl: '',
+    sinMeasures: '',
+  ),
   Pathology(
-      title: 'Potassium deficiency',
-      description:
-      '..............................................',
-      imageUrl: 'assets/images/rice_potassium.png'),
+    title: 'Potassium deficiency',
+    description: '..............................................',
+    imageUrl: 'assets/images/rice_potassium.png',
+    orgControl: '',
+    chemControl: '',
+    measures: '',
+    sinTitle: '',
+    sinDescription: '',
+    sinOrgControl: '',
+    sinChemControl: '',
+    sinMeasures: '',
+  ),
 ];
 
 List<Pathology> berryList = [
   Pathology(
-      title: 'Berry Leaf Scorch',
-      description:
-      '..............................................',
-      imageUrl:
-      'assets/images/berry_scorch.png'),
+    title: 'Berry Leaf Scorch',
+    description: '..............................................',
+    imageUrl: 'assets/images/berry_scorch.png',
+    orgControl: '',
+    chemControl: '',
+    measures: '',
+    sinTitle: '',
+    sinDescription: '',
+    sinOrgControl: '',
+    sinChemControl: '',
+    sinMeasures: '',
+  ),
 ];
 
 List<Pathology> chiliList = [
   Pathology(
-      title: 'Chilli Leaf Spot',
-      description:
-      '..............................................',
-      imageUrl:
-      'assets/images/chilli_leafspot.png'),
-
+    title: 'Chilli Leaf Spot',
+    description: '..............................................',
+    imageUrl: 'assets/images/chilli_leafspot.png',
+    orgControl: '',
+    chemControl: '',
+    measures: '',
+    sinTitle: '',
+    sinDescription: '',
+    sinOrgControl: '',
+    sinChemControl: '',
+    sinMeasures: '',
+  ),
   Pathology(
-      title: 'Chilli Whitefly',
-      description:
-      '..............................................',
-      imageUrl:
-      'assets/images/chilli_whitefly.jpg'),
-
+    title: 'Chilli Whitefly',
+    description: '..............................................',
+    imageUrl: 'assets/images/chilli_whitefly.jpg',
+    orgControl: '',
+    chemControl: '',
+    measures: '',
+    sinTitle: '',
+    sinDescription: '',
+    sinOrgControl: '',
+    sinChemControl: '',
+    sinMeasures: '',
+  ),
   Pathology(
-      title: 'Pepper Bacterial Spot',
-      description:
-      '..............................................',
-      imageUrl:
-      'assets/images/pepper_bs.jpg'),
+    title: 'Pepper Bacterial Spot',
+    description: '..............................................',
+    imageUrl: 'assets/images/pepper_bs.jpg',
+    orgControl: '',
+    chemControl: '',
+    measures: '',
+    sinTitle: '',
+    sinDescription: '',
+    sinOrgControl: '',
+    sinChemControl: '',
+    sinMeasures: '',
+  ),
 ];
-
 
 List<Pathology> citrusList = [
   Pathology(
-      title: 'Citrus Greening',
-      description:
-      '..............................................',
-      imageUrl:
-      'assets/images/citurs_green.jpg'),
+    title: 'Citrus Greening',
+    description: '..............................................',
+    imageUrl: 'assets/images/citurs_green.jpg',
+    orgControl: '',
+    chemControl: '',
+    measures: '',
+    sinTitle: '',
+    sinDescription: '',
+    sinOrgControl: '',
+    sinChemControl: '',
+    sinMeasures: '',
+  ),
 ];
 
 List<Pathology> cornList = [
   Pathology(
-      title: 'Corn Gray Leaf Spot',
-      description:
-      '..............................................',
-      imageUrl:
-      'assets/images/corn_gray.jpg'),
+    title: 'Corn Gray Leaf Spot',
+    description: '..............................................',
+    imageUrl: 'assets/images/corn_gray.jpg',
+    orgControl: '',
+    chemControl: '',
+    measures: '',
+    sinTitle: '',
+    sinDescription: '',
+    sinOrgControl: '',
+    sinChemControl: '',
+    sinMeasures: '',
+  ),
   Pathology(
-      title: 'Corn Northern Leaf Blight',
-      description:
-      '..............................................',
-      imageUrl:
-      'assets/images/corn_northern.jpg'),
+    title: 'Corn Northern Leaf Blight',
+    description: '..............................................',
+    imageUrl: 'assets/images/corn_northern.jpg',
+    orgControl: '',
+    chemControl: '',
+    measures: '',
+    sinTitle: '',
+    sinDescription: '',
+    sinOrgControl: '',
+    sinChemControl: '',
+    sinMeasures: '',
+  ),
 ];
 
 List<Pathology> grapeList = [
   Pathology(
-      title: 'Grape Black-Rot',
-      description:
-      '..............................................',
-      imageUrl:
-      'assets/images/grape_blackrot.jpg'),
+    title: 'Grape Black-Rot',
+    description: '..............................................',
+    imageUrl: 'assets/images/grape_blackrot.jpg',
+    orgControl: '',
+    chemControl: '',
+    measures: '',
+    sinTitle: '',
+    sinDescription: '',
+    sinOrgControl: '',
+    sinChemControl: '',
+    sinMeasures: '',
+  ),
   Pathology(
-      title: 'Grape Leaf Blight',
-      description:
-      '..............................................',
-      imageUrl:
-      'assets/images/grape_blight.jpg'),
+    title: 'Grape Leaf Blight',
+    description: '..............................................',
+    imageUrl: 'assets/images/grape_blight.jpg',
+    orgControl: '',
+    chemControl: '',
+    measures: '',
+    sinTitle: '',
+    sinDescription: '',
+    sinOrgControl: '',
+    sinChemControl: '',
+    sinMeasures: '',
+  ),
   Pathology(
-      title: 'Grape Healthy',
-      description:
-      '..............................................',
-      imageUrl:
-      'assets/images/grape_healthy.jpg'),
+    title: 'Grape Healthy',
+    description: '..............................................',
+    imageUrl: 'assets/images/grape_healthy.jpg',
+    orgControl: '',
+    chemControl: '',
+    measures: '',
+    sinTitle: '',
+    sinDescription: '',
+    sinOrgControl: '',
+    sinChemControl: '',
+    sinMeasures: '',
+  ),
 ];
 
 List<Pathology> pestList = [
   Pathology(
-      title: 'Aphids',
-      description:
-      '..............................................',
-      imageUrl:
-      'assets/images/aphids.jpg'),
+    title: 'Aphids',
+    description: '..............................................',
+    imageUrl: 'assets/images/aphids.jpg',
+    orgControl: '',
+    chemControl: '',
+    measures: '',
+    sinTitle: '',
+    sinDescription: '',
+    sinOrgControl: '',
+    sinChemControl: '',
+    sinMeasures: '',
+  ),
   Pathology(
-      title: 'Armyworm',
-      description:
-      '..............................................',
-      imageUrl:
-      'assets/images/armyworm.jpg'),
+    title: 'Armyworm',
+    description:
+        'The larvae of the fall armyworm cause damage by feeding on all plant parts. Young larvae initially eat one side of the surface of the leaf tissue, leaving the opposite layer intact. Larger larvae leave a characteristic row of perforations and ragged margins on leaves, as well as lines of larval frass. The larvae are light tan or green to nearly black, with stripes running along the flanks and a yellowish line along the back.',
+    imageUrl: 'assets/images/armyworm.jpg',
+    orgControl:
+        'The most common parasites include ground beetles, spined soldier bugs, flower bugs, birds or rodents. Bio-insecticides containing neem extracts, Bacillus Thuringiensis or Baculovirus Spodoptera, as well as Spinosad or Azadirachtin can be sprayed. In maize, red sand, rock salt, charcoal powder or fly ash put in the flower, it will kill larvare by feeding on them.',
+    chemControl:
+        'Recommended insecticides include esfenvalerate, chlorpyrifos, malathion and lambda-cyhalothrin. Farmers are also advised to go for poison bait based on these insecticides for adult larvae.',
+    measures:
+        '- Monitor the moth presence and mass-catch them with light or pheromone traps.\n- Plant more resilient plants.\n- Plow the land to expose larvae and pupae to high temperatures.',
+    sinTitle: 'සේනා දළඹුවා',
+    sinDescription: 'සේනා දළඹුවාගේ කීටයන් සියලුම ශාක කොටස් ආහාරයට ගැනීමෙන් හානි සිදු කරයි. තරුණ කීටයන් මුලින් පත්‍ර පටක මතුපිට එක් පැත්තක් අනුභව කරන අතර ප්‍රතිවිරුද්ධ ස්ථරය නොවෙනස්ව පවතී. විශාල කීටයන් ලාක්ෂණික සිදුරු පේළියක් සහ කොළ මත ඉරිතලා ගිය දාර මෙන්ම කීට පිත්තල රේඛා ද තබයි. කීටයන් ලා දුඹුරු හෝ කොළ සිට කළු පැහැයට ආසන්න වන අතර, ඉරි දෙපස දිවෙන අතර පිටුපසින් කහ පැහැති රේඛාවක් ඇත.',
+    sinOrgControl: 'වඩාත් සුලභ පරපෝෂිතයන් වන්නේ බිම් කුරුමිණියන්, ස්පින්ඩ් කුරුමිණියන්, මල් මකුණන්, කුරුල්ලන් හෝ මීයන් ය. නීම් සාරය, Bacillus Thuringiensis හෝ Baculovirus Spodoptera අඩංගු ජෛව කෘමිනාශක මෙන්ම Spinosad හෝ Azadirachtin ද ඉසිය හැක. බඩ ඉරිඟු, රතු වැලි, ගල් ලුණු, අඟුරු කුඩු හෝ මැස්සන් මල් තුළට දැමීම, එය ආහාරයට ගැනීමෙන් කීටයන් විනාශ කරයි.',
+    sinChemControl: 'නිර්දේශිත කෘමිනාශක අතර esfenvalerate, chlorpyrifos, malathion සහ lambda-cyhalothrin ඇතුළත් වේ. වැඩිහිටි කීටයන් සඳහා මෙම කෘමිනාශක මත පදනම්ව වස ඇමක් සඳහා ගොවීන්ට උපදෙස් දෙනු ලැබේ.',
+    sinMeasures: '- සලබයාගේ පැමිණීම නිරීක්ෂණය කර සැහැල්ලු හෝ ෆෙරමෝන් උගුල්වලින් ඔවුන්ව අල්ලා ගන්න.\n- වඩා ඔරොත්තු දෙන පැල සිටුවන්න.\n- කීටයන් ඉහළ උෂ්ණත්වයකට නිරාවරණය කිරීමට ඉඩම සීසන්න.',
+  ),
   Pathology(
-      title: 'Bollworm',
-      description:
-      '..............................................',
-      imageUrl:
-      'assets/images/bollworm.jpg'),
+    title: 'Bollworm',
+    description: '..............................................',
+    imageUrl: 'assets/images/bollworm.jpg',
+    orgControl: '',
+    chemControl: '',
+    measures: '',
+    sinTitle: '',
+    sinDescription: '',
+    sinOrgControl: '',
+    sinChemControl: '',
+    sinMeasures: '',
+  ),
   Pathology(
-      title: 'Mites',
-      description:
-      '..............................................',
-      imageUrl:
-      'assets/images/mites.jpg'),
+    title: 'Mites',
+    description: '..............................................',
+    imageUrl: 'assets/images/mites.jpg',
+    orgControl: '',
+    chemControl: '',
+    measures: '',
+    sinTitle: '',
+    sinDescription: '',
+    sinOrgControl: '',
+    sinChemControl: '',
+    sinMeasures: '',
+  ),
   Pathology(
-      title: 'Sawfly',
-      description:
-      '..............................................',
-      imageUrl:
-      'assets/images/sawfly.jpg'),
+    title: 'Sawfly',
+    description: '..............................................',
+    imageUrl: 'assets/images/sawfly.jpg',
+    orgControl: '',
+    chemControl: '',
+    measures: '',
+    sinTitle: '',
+    sinDescription: '',
+    sinOrgControl: '',
+    sinChemControl: '',
+    sinMeasures: '',
+  ),
   Pathology(
-      title: 'Stem Borer',
-      description:
-      '..............................................',
-      imageUrl:
-      'assets/images/stem_borer.jpg'),
+    title: 'Stem Borer',
+    description: '..............................................',
+    imageUrl: 'assets/images/stem_borer.jpg',
+    orgControl: '',
+    chemControl: '',
+    measures: '',
+    sinTitle: '',
+    sinDescription: '',
+    sinOrgControl: '',
+    sinChemControl: '',
+    sinMeasures: '',
+  ),
   Pathology(
-      title: 'Chilli Whitefly',
-      description:
-      '..............................................',
-      imageUrl:
-      'assets/images/whitefly.jpg'),
+    title: 'Chilli Whitefly',
+    description: '..............................................',
+    imageUrl: 'assets/images/whitefly.jpg',
+    orgControl: '',
+    chemControl: '',
+    measures: '',
+    sinTitle: '',
+    sinDescription: '',
+    sinOrgControl: '',
+    sinChemControl: '',
+    sinMeasures: '',
+  ),
 ];
 
 List<Pathology> potatoList = [
   Pathology(
-      title: 'Potato Early Blight',
-      description:
-      '..............................................',
-      imageUrl:
-      'assets/images/potato_early.jpg'),
+    title: 'Potato Early Blight',
+    description: '..............................................',
+    imageUrl: 'assets/images/potato_early.jpg',
+    chemControl: '',
+    orgControl: '',
+    measures: '',
+    sinTitle: '',
+    sinDescription: '',
+    sinOrgControl: '',
+    sinChemControl: '',
+    sinMeasures: '',
+  ),
   Pathology(
-      title: 'Potato Late Blight',
-      description:
-      '..............................................',
-      imageUrl:
-      'assets/images/potato_late.jpg'),
+    title: 'Potato Late Blight',
+    description: '..............................................',
+    imageUrl: 'assets/images/potato_late.jpg',
+    orgControl: '',
+    chemControl: '',
+    measures: '',
+    sinTitle: '',
+    sinDescription: '',
+    sinOrgControl: '',
+    sinChemControl: '',
+    sinMeasures: '',
+  ),
   Pathology(
-      title: 'Potato Healthy',
-      description:
-      '..............................................',
-      imageUrl:
-      'assets/images/potato_healthy.jpg'),
+    title: 'Potato Healthy',
+    description: '..............................................',
+    imageUrl: 'assets/images/potato_healthy.jpg',
+    orgControl: '',
+    chemControl: '',
+    measures: '',
+    sinTitle: '',
+    sinDescription: '',
+    sinOrgControl: '',
+    sinChemControl: '',
+    sinMeasures: '',
+  ),
 ];
 
 List<Pathology> tomatoList = [
   Pathology(
-      title: 'Tomato Bacterial Spot',
-      description:
-      '..............................................',
-      imageUrl:
-      'assets/images/tomato_bacSPot.jpg'),
+    title: 'Tomato Bacterial Spot',
+    description: '..............................................',
+    imageUrl: 'assets/images/tomato_bacSPot.jpg',
+    orgControl: '',
+    chemControl: '',
+    measures: '',
+    sinTitle: '',
+    sinDescription: '',
+    sinOrgControl: '',
+    sinChemControl: '',
+    sinMeasures: '',
+  ),
   Pathology(
-      title: 'Tomato Early Leaf Blight',
-      description:
-      '..............................................',
-      imageUrl:
-      'assets/images/tomato_early.jpg'),
+    title: 'Tomato Early Leaf Blight',
+    description: '..............................................',
+    imageUrl: 'assets/images/tomato_early.jpg',
+    orgControl: '',
+    chemControl: '',
+    measures: '',
+    sinTitle: '',
+    sinDescription: '',
+    sinOrgControl: '',
+    sinChemControl: '',
+    sinMeasures: '',
+  ),
   Pathology(
-      title: 'Tomato Leaf Mold',
-      description:
-      '..............................................',
-      imageUrl:
-      'assets/images/tomato_mold.jpg'),
+    title: 'Tomato Leaf Mold',
+    description: '..............................................',
+    imageUrl: 'assets/images/tomato_mold.jpg',
+    orgControl: '',
+    chemControl: '',
+    measures: '',
+    sinTitle: '',
+    sinDescription: '',
+    sinOrgControl: '',
+    sinChemControl: '',
+    sinMeasures: '',
+  ),
   Pathology(
-      title: 'Tomato Mosaic Virus',
-      description:
-      '..............................................',
-      imageUrl:
-      'assets/images/tomato_mosaic.jpg'),
+    title: 'Tomato Mosaic Virus',
+    description: '..............................................',
+    imageUrl: 'assets/images/tomato_mosaic.jpg',
+    orgControl: '',
+    chemControl: '',
+    measures: '',
+    sinTitle: '',
+    sinDescription: '',
+    sinOrgControl: '',
+    sinChemControl: '',
+    sinMeasures: '',
+  ),
   Pathology(
-      title: 'Tomato Septoria Leaf Spot',
-      description:
-      '..............................................',
-      imageUrl:
-      'assets/images/tomato_septoria.jpg'),
+    title: 'Tomato Septoria Leaf Spot',
+    description: '..............................................',
+    imageUrl: 'assets/images/tomato_septoria.jpg',
+    orgControl: '',
+    chemControl: '',
+    measures: '',
+    sinTitle: '',
+    sinDescription: '',
+    sinOrgControl: '',
+    sinChemControl: '',
+    sinMeasures: '',
+  ),
 ];
-
-
-
-
-

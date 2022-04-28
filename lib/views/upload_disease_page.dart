@@ -4,6 +4,7 @@ import 'dart:typed_data';
 
 import 'package:cropdoc_app/theme/app_styles.dart';
 import 'package:cropdoc_app/utils/utils.dart';
+import 'package:cropdoc_app/views/identified_list.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -205,6 +206,7 @@ class _UploadDiseaseState extends State<UploadDisease> {
                     pred = await uploadImage();
                     decoded = jsonDecode(pred);
                     disease = decoded['prediction'];
+                    await loadListPage();
                   },
                   child: Container(
                     width: 70,
@@ -218,7 +220,7 @@ class _UploadDiseaseState extends State<UploadDisease> {
                 ),
               ],
             ),
-            Text("$disease", style: TextStyle(fontSize: 20, color: Colors.white,),)
+            // Text("$disease", style: TextStyle(fontSize: 20, color: Colors.white,),)
           ],
         ),
       ),
@@ -274,5 +276,13 @@ class _UploadDiseaseState extends State<UploadDisease> {
     return res.body;
 
   }
+
+  loadListPage() async {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => IdentifyList(disease: disease)));
+  }
+
 
 }
