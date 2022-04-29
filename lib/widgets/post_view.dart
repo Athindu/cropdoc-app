@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cropdoc_app/theme/app_styles.dart';
 import 'package:cropdoc_app/components/comments_page.dart';
@@ -26,15 +28,28 @@ class _PostViewState extends State<PostView> {
     getComments();
   }
 
+  //  -- This method uses Future with QuerySnapshot, so unable to get comment count in real time
+  // void getComments() async {
+  //   try {
+  //     QuerySnapshot snap =  await FirebaseFirestore.instance.collection('posts').doc(widget.snap['postId']).collection('comments').get();
+  //
+  //     commentLength = snap.docs.length;
+  //   } catch (e) {
+  //     showSnackbar(e.toString(),context);
+  //   }
+  //   setState(() {});
+  // }
+
   void getComments() async {
     try {
-      QuerySnapshot snap =  await FirebaseFirestore.instance.collection('posts').doc(widget.snap['postId']).collection('comments').get();
-
-      commentLength = snap.docs.length;
+      StreamSubscription<QuerySnapshot<Map<String, dynamic>>> snap =  await FirebaseFirestore.instance.collection('posts').doc(widget.snap['postId']).collection('comments').snapshots().listen((value) => {
+      setState(() {commentLength = value.docs.length;})
+      });
+      //commentLength = snap.docs.length;
     } catch (e) {
       showSnackbar(e.toString(),context);
     }
-    setState(() {});
+    //setState(() {});
   }
 
   @override
@@ -75,7 +90,7 @@ class _PostViewState extends State<PostView> {
             width: double.infinity,
             child: Image.network(
               widget.snap['postUrl'],
-              fit: BoxFit.cover,
+              fit: BoxFit.fill,
             ),
           ),
           Row(
