@@ -74,8 +74,7 @@ class _PathologyDetailsScreenState extends State<PathologyDetailsScreen> {
                                 setState(() {
                                   flag = 1;
                                 });
-                              }
-                              else{
+                              } else {
                                 setState(() {
                                   flag = 0;
                                 });
@@ -110,17 +109,13 @@ class _PathologyDetailsScreenState extends State<PathologyDetailsScreen> {
                         SizedBox(
                           height: 15,
                         ),
-                        Row(
-                          children: [
-                            Text(
-                              widget.pathology.sinTitle,
-                              style: TextStyle(
-                                fontSize: 30,
-                                fontFamily: 'Raleway',
-                                fontWeight: FontWeight.w900,
-                              ),
-                            ),
-                          ],
+                        Text(
+                          widget.pathology.sinTitle,
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontFamily: 'Raleway',
+                            fontWeight: FontWeight.w900,
+                          ),
                         ),
                         //Description
                         SizedBox(
@@ -286,7 +281,7 @@ class _PathologyDetailsScreenState extends State<PathologyDetailsScreen> {
               ],
             ),
           ))
-    //English View
+        //English View
         : Scaffold(
             body: SingleChildScrollView(
             child: Stack(
@@ -341,8 +336,7 @@ class _PathologyDetailsScreenState extends State<PathologyDetailsScreen> {
                                 setState(() {
                                   flag = 1;
                                 });
-                              }
-                              else{
+                              } else {
                                 setState(() {
                                   flag = 0;
                                 });
@@ -377,17 +371,13 @@ class _PathologyDetailsScreenState extends State<PathologyDetailsScreen> {
                         SizedBox(
                           height: 15,
                         ),
-                        Row(
-                          children: [
-                            Text(
-                              widget.pathology.title,
-                              style: TextStyle(
-                                fontSize: 30,
-                                fontFamily: 'Raleway',
-                                fontWeight: FontWeight.w900,
-                              ),
-                            ),
-                          ],
+                        Text(
+                          widget.pathology.title,
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontFamily: 'Raleway',
+                            fontWeight: FontWeight.w900,
+                          ),
                         ),
                         //Description
                         SizedBox(
