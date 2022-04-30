@@ -16,7 +16,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  //final user = FirebaseAuth.instance.currentUser!;
 
   late LocationHelper locationData;
   late WeatherData weatherData;
@@ -250,7 +249,7 @@ class _HomePageState extends State<HomePage> {
           ),
           SizedBox(height: 60),
           Container(
-            margin: const EdgeInsets.only(left: 8),
+            margin: const EdgeInsets.only(left: 9),
             child: Row(
               children: [
                 Container(

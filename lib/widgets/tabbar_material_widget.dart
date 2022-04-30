@@ -47,7 +47,7 @@ class _TabBarMaterialWidgetState extends State<TabBarMaterialWidget> {
             buildTabItem(
               index: 2,
               icon: Icons.forum_outlined,
-              title: "Forum",
+              title: "Community",
             ),
             buildTabItem(
               index: 3,
