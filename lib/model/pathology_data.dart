@@ -241,7 +241,7 @@ class _PathologyDetailsScreenState extends State<PathologyDetailsScreen> {
                                       borderRadius: BorderRadius.circular(10),
                                       image: DecorationImage(
                                           image: AssetImage(
-                                              widget.pathology.imageUrl),
+                                              widget.pathology.imageUrl1),
                                           fit: BoxFit.cover)),
                                 ),
                               ),
@@ -254,7 +254,7 @@ class _PathologyDetailsScreenState extends State<PathologyDetailsScreen> {
                                       borderRadius: BorderRadius.circular(10),
                                       image: DecorationImage(
                                           image: AssetImage(
-                                              widget.pathology.imageUrl),
+                                              widget.pathology.imageUrl2),
                                           fit: BoxFit.cover)),
                                 ),
                               ),
@@ -495,7 +495,7 @@ class _PathologyDetailsScreenState extends State<PathologyDetailsScreen> {
                           child: Row(
                             children: <Widget>[
                               Padding(
-                                padding: const EdgeInsets.only(right: 20),
+                                padding: const EdgeInsets.only(right: 12),
                                 child: Container(
                                   width: 150,
                                   height: 150,
@@ -503,12 +503,12 @@ class _PathologyDetailsScreenState extends State<PathologyDetailsScreen> {
                                       borderRadius: BorderRadius.circular(10),
                                       image: DecorationImage(
                                           image: AssetImage(
-                                              widget.pathology.imageUrl),
+                                              widget.pathology.imageUrl1),
                                           fit: BoxFit.cover)),
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsets.only(right: 20),
+                                padding: const EdgeInsets.only(right: 12),
                                 child: Container(
                                   width: 150,
                                   height: 150,
@@ -516,12 +516,12 @@ class _PathologyDetailsScreenState extends State<PathologyDetailsScreen> {
                                       borderRadius: BorderRadius.circular(10),
                                       image: DecorationImage(
                                           image: AssetImage(
-                                              widget.pathology.imageUrl),
+                                              widget.pathology.imageUrl2),
                                           fit: BoxFit.cover)),
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsets.only(right: 20),
+                                padding: const EdgeInsets.only(right: 12),
                                 child: Container(
                                   width: 150,
                                   height: 150,
