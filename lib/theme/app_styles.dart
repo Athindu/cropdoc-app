@@ -13,6 +13,7 @@ const Color gradColor1 = Color(0xFF11998e);
 const Color gradColor2 = Color(0xFFa8e063);
 const Color cardColor = Color(0x6662bf76);
 const Color toggleColor = Color(0x8062bf76);
+const Color darkGreen = Color(0xFF1b4d3e);
 
 const Color whiteGrad = Color(0xE6ffffff);
 

@@ -1,5 +1,6 @@
 import 'package:cropdoc_app/model/google_sign_in.dart';
 import 'package:cropdoc_app/theme/app_styles.dart';
+import 'package:cropdoc_app/widgets/bot_splash_view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -62,7 +63,10 @@ class _BodyState extends State<Body> {
           ProfileMenu(
             text: "Help Center",
             //icon: "assets/icons/logout.svg",
-            press: () => showCustomSnackBar(context, 'Option is not available right now'),
+            press: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => BotSplashScreen())),
           ),
           ProfileMenu(
             text: "Log Out",
