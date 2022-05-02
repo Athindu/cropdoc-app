@@ -22,104 +22,128 @@ class _ChatState extends State<Chat> {
     DialogFlowtter.fromFile().then((instance) => dialogFlowtter = instance);
   }
 
+  Future<bool?> showWarn(BuildContext context) async => showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text("Do you want to exit the bot ?"),
+        actions: [
+          FlatButton(
+            child: Text("Yes"),onPressed: () => Navigator.pop(context, true),
+          ),
+          FlatButton(
+            child: Text("No"),onPressed: () => Navigator.pop(context, false),
+          ),
+        ],
+      ));
+
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.lightGreen[50],
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        toolbarHeight: 70.0,
-        backgroundColor: Colors.transparent,
-        // leading: Image.asset("assets/images/chatbot_prof.gif",
-        //   fit:BoxFit.cover,height:10.00,
-        //     width:10.00),
-        title: Container(
-          child: Row(
-            children: [
-              SizedBox(width: 5.00),
-              Image.asset("assets/images/chatbot_prof.gif",
-                  fit: BoxFit.cover, height: 50.00, width: 50.00),
-              SizedBox(width: 25.00),
-              Text(
-                'CropDoc Bot',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontFamily: 'Exton',
-                  fontSize: 28,
-                  letterSpacing: 1.7,
-                  wordSpacing: 2.5,
-                  //fontWeight: FontWeight.bold,
+  Widget build(BuildContext context) =>
+      WillPopScope(
+      onWillPop: () async{
+        final exitCheck = await showWarn(context);
+
+        return exitCheck ?? false;
+      },
+      child: Scaffold(
+        backgroundColor: Colors.lightGreen[50],
+        appBar: AppBar(
+          toolbarHeight: 70.0,
+          backgroundColor: Colors.transparent,
+          // leading: Image.asset("assets/images/chatbot_prof.gif",
+          //   fit:BoxFit.cover,height:10.00,
+          //     width:10.00),
+          title: Container(
+            child: Row(
+              children: [
+                SizedBox(width: 15.00),
+                Image.asset("assets/images/chatbot_prof.gif",
+                    fit: BoxFit.cover, height: 50.00, width: 50.00),
+                SizedBox(width: 25.00),
+                Column(
+                  children: [
+                    Text(
+                      'CropDoc Bot',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontFamily: 'Exton',
+                        fontSize: 28,
+                        letterSpacing: 1.7,
+                        wordSpacing: 2.5,
+                        //fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(right: 90.0),
+                      child: Text(
+                        '• Online',
+                        style: TextStyle(
+                          color: loginColor,
+                          fontSize: 15,
+                          //fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              ),
+
+              ],
+            ),
+          ),
+
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    colors: [gradColor1, gradColor2],
+                    begin: Alignment.bottomCenter,
+                    end: Alignment.topCenter)),
+          ),
+        ),
+        body: SafeArea(
+          child: Column(
+            children: [
+              Expanded(child: MessageBody(messages: messages)),
               Container(
-                margin: const EdgeInsets.only(left: 90.0),
-                child: Text(
-                  '• Online',
-                  style: TextStyle(
-                    color: loginColor,
-                    fontSize: 15,
-                    //fontWeight: FontWeight.bold,
-                  ),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 10,
+                  vertical: 10,
+                ),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: TextFormField(
+                        controller: messageController,
+                        style:
+                            TextStyle(color: Colors.black, fontFamily: 'Poppins'),
+                        decoration: new InputDecoration(
+                          enabledBorder: new OutlineInputBorder(
+                              borderSide: new BorderSide(color: Colors.black),
+                              borderRadius: BorderRadius.circular(15)),
+                          hintStyle: TextStyle(
+                            color: Colors.black54,
+                            fontSize: 15,
+                            fontStyle: FontStyle.italic,
+                          ),
+                          labelStyle: TextStyle(color: Colors.black),
+                          hintText: 'Send a "Hi" to start',
+                        ),
+                      ),
+                    ),
+                    IconButton(
+                      color: gradColor1,
+                      icon: Icon(Icons.send, size: 26,),
+                      onPressed: () {
+                        sendMessage(messageController.text);
+                        messageController.clear();
+                      },
+                    ),
+                  ],
                 ),
               ),
             ],
           ),
         ),
-
-        flexibleSpace: Container(
-          decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  colors: [gradColor1, gradColor2],
-                  begin: Alignment.bottomCenter,
-                  end: Alignment.topCenter)),
-        ),
-      ),
-      body: SafeArea(
-        child: Column(
-          children: [
-            Expanded(child: MessageBody(messages: messages)),
-            Container(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 10,
-                vertical: 10,
-              ),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: TextFormField(
-                      controller: messageController,
-                      style:
-                          TextStyle(color: Colors.black, fontFamily: 'Poppins'),
-                      decoration: new InputDecoration(
-                        enabledBorder: new OutlineInputBorder(
-                            borderSide: new BorderSide(color: Colors.black),
-                            borderRadius: BorderRadius.circular(15)),
-                        hintStyle: TextStyle(
-                          color: Colors.black54,
-                          fontSize: 15,
-                          fontStyle: FontStyle.italic,
-                        ),
-                        labelStyle: TextStyle(color: Colors.black),
-                        hintText: 'Send a "Hi" to start',
-                      ),
-                    ),
-                  ),
-                  IconButton(
-                    color: gradColor1,
-                    icon: Icon(Icons.send, size: 26,),
-                    onPressed: () {
-                      sendMessage(messageController.text);
-                      messageController.clear();
-                    },
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
       ),
     );
-  }
 
   void sendMessage(String text) async {
     if (text.isEmpty) return;
