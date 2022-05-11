@@ -75,6 +75,7 @@ class _HomePageState extends State<HomePage> {
     double h = MediaQuery.of(context).size.height;
 
     return Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: Color(0xFFECFFDC),
         body: Column(children: <Widget>[
             Container(
