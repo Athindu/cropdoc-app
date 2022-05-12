@@ -165,9 +165,9 @@ class IdentifyList extends StatelessWidget {
     } else if (disease == "Citrus Greening") {
       pItem = citrusList[0];
     } else if (disease == "Corn Gray Leaf Spot") {
-      pItem = citrusList[0];
+      pItem = cornList[0];
     } else if (disease == "Corn Northern Leaf Blight") {
-      pItem = citrusList[1];
+      pItem = cornList[1];
     } else if (disease == "Grape Black Rot") {
       pItem = grapeList[0];
     } else if (disease == "Grape Healthy") {
