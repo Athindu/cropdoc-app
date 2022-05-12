@@ -259,7 +259,7 @@ class _UploadDiseaseState extends State<UploadDisease> {
 
 
   uploadImage() async {
-    final response = http.MultipartRequest("POST", Uri.parse("http://10.0.2.2:5000/predict"));
+    final response = http.MultipartRequest("POST", Uri.parse("https://fea0-112-135-66-179.ap.ngrok.io/predict"));
 
     final headers = {"Content-Type": "multipart/form-data"};
 
