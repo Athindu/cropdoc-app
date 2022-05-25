@@ -257,9 +257,11 @@ class _UploadDiseaseState extends State<UploadDisease> {
     }
   }
 
+//https://fea0-112-135-66-179.ap.ngrok.io/predict
+//http://10.0.2.2:4000/predict
 
   uploadImage() async {
-    final response = http.MultipartRequest("POST", Uri.parse("https://fea0-112-135-66-179.ap.ngrok.io/predict"));
+    final response = http.MultipartRequest("POST", Uri.parse("http://10.0.2.2:4000/predict"));
 
     final headers = {"Content-Type": "multipart/form-data"};
 
@@ -271,7 +273,7 @@ class _UploadDiseaseState extends State<UploadDisease> {
     http.Response res = await http.Response.fromStream(reqResponse);
     setState(() {});
 
-    //http.Response res = await http.get(Uri.parse("http://10.0.2.2:5000/predict"));
+    //http.Response res = await http.get(Uri.parse("http://10.0.2.2:4000/predict"));
 
     return res.body;
 
