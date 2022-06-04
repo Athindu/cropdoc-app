@@ -1,6 +1,6 @@
-# cropdoc_app
+# CropDoc
 
-A new Flutter project.
+A cross platform mobile application developed using Flutter.
 
 ## Getting Started
 
