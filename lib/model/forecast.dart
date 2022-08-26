@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 
 
-const apiKey = '***REMOVED***';
+const apiKey = 'api_key';
 
 class WeatherData {
 
